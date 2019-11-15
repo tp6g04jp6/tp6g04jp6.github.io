@@ -339,6 +339,327 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/15/MySQL-linux/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tp6g04jp6">
+      <meta itemprop="description" content="部落格,">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KenPlay">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/11/15/MySQL-linux/" class="post-title-link" itemprop="url">MySQL(linux)</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2019-11-15 10:28:44 / 修改時間：11:04:08" itemprop="dateCreated datePublished" datetime="2019-11-15T10:28:44+08:00">2019-11-15</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/筆記/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/筆記/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="安裝-MySQL"><a href="#安裝-MySQL" class="headerlink" title="安裝 MySQL"></a>安裝 MySQL</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server</span><br><span class="line">sudo apt install mysql-client</span><br><span class="line">sudo apt install libmysqlclient-dev</span><br><span class="line">```  </span><br><span class="line">  </span><br><span class="line"><span class="meta">#</span> 測試資料庫是否安裝成功  </span><br><span class="line">安裝 net-tools, 使用 **netstat** 指令  </span><br><span class="line">```shell</span><br><span class="line">sudo apt-get install net-tools</span><br><span class="line">```  </span><br><span class="line">安裝完成後使用 **netstat** 指令查詢  </span><br><span class="line">```bash</span><br><span class="line">sudo netstat -tap | grep mysql</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 設置MysSQL允許遠端訪問  </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span># 編輯 mysqld.cnf </span><br><span class="line">查詢 MySQL 設定檔, 並找到**真正**的設定檔案  </span><br><span class="line">```shell</span><br><span class="line">sudo mysqladmin</span><br><span class="line">```   </span><br><span class="line">若系統使用MySQL, config 檔可能是mysqld.cnf</span><br><span class="line">若系統使用MariaDB, config 檔可能是50-server.cnf</span><br><span class="line">```shell</span><br><span class="line">sudo vim /path/to/mysqld.cnf</span><br><span class="line">```  </span><br><span class="line">修改**bind**參數  </span><br><span class="line">原本可能:**bind = 127.0.0.1** </span><br><span class="line">修改為: **bind = 0.0.0.0**  </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span># 進入 MySQL 服務  </span><br><span class="line">```shell</span><br><span class="line">mysql -u root -p</span><br><span class="line">```  </span><br><span class="line">輸入後看到 **mysql&gt;** 代表成功進入MySQL client  </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span># 執行授權命令  </span><br><span class="line">在 MySQL 環境下執行授權命令(授權給遠程任何電腦登錄資料庫)，輸入以下指令：  </span><br><span class="line">```shell</span><br><span class="line"><span class="meta">mysql&gt;</span> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '你的密碼' WITH GRANT OPTION;</span><br><span class="line">```  </span><br><span class="line">PRIVILEGES ON *.* 代表權縣, 'root'代表現在的使用者, '%'代表IP位置, 並輸入密碼  </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span># 更新設定  </span><br><span class="line">設定完成後下指令更新設定</span><br><span class="line">```shell</span><br><span class="line"><span class="meta">mysql&gt;</span> flush privileges;</span><br></pre></td></tr></table></figure>
+<p>退出MySQL服務<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span> exit</span><br></pre></td></tr></table></figure></p>
+<p>重啟MySQL<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudop service mysql restart</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/14/Functional-Programing-1-JavaScript-ES6-Syntax/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tp6g04jp6">
+      <meta itemprop="description" content="部落格,">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KenPlay">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/11/14/Functional-Programing-1-JavaScript-ES6-Syntax/" class="post-title-link" itemprop="url">未命名</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2019-11-14 19:59:37 / 修改時間：20:03:54" itemprop="dateCreated datePublished" datetime="2019-11-14T19:59:37+08:00">2019-11-14</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<p>title: Functional Programing 1 - JavaScript ES6 Syntax<br>date: 2019-11-14 19:59:37<br>category:</p>
+<ul>
+<li>Functional Programing<br>tags:  </li>
+<li>JavaScript</li>
+<li>ES6</li>
+</ul>
+<hr>
+<h1 id="First-class-Function"><a href="#First-class-Function" class="headerlink" title="First-class Function"></a>First-class Function</h1><p>當function在某個語言中可以被當成變數一樣, 就代表該語言擁有First-class Function<br>例如Function1可以做為參數傳遞到另一個Function2, 可以被Function3作為回傳值或指派到另一個變數  </p>
+<h2 id="Example-指定Function到一個變數"><a href="#Example-指定Function到一個變數" class="headerlink" title="Example: 指定Function到一個變數"></a>Example: 指定Function到一個變數</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'foobar'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Example-將Function作為參數傳遞"><a href="#Example-將Function作為參數傳遞" class="headerlink" title="Example: 將Function作為參數傳遞"></a>Example: 將Function作為參數傳遞</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello '</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greeting</span>(<span class="params">helloMessage, name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(helloMessage() + name)</span><br><span class="line">&#125;</span><br><span class="line">greeting(sayHellp, <span class="string">"JavaScript"</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="Example-回傳一個回傳一個Function"><a href="#Example-回傳一個回傳一個Function" class="headerlink" title="Example: 回傳一個回傳一個Function"></a>Example: 回傳一個回傳一個Function</h2>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/14/WTF-JavaScript/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -384,7 +705,7 @@
                 
               
 
-              <time title="創建時間：2019-11-14 19:07:01 / 修改時間：19:17:27" itemprop="dateCreated datePublished" datetime="2019-11-14T19:07:01+08:00">2019-11-14</time>
+              <time title="創建時間：2019-11-14 19:07:01 / 修改時間：19:50:54" itemprop="dateCreated datePublished" datetime="2019-11-14T19:07:01+08:00">2019-11-14</time>
             
 
             
@@ -424,7 +745,7 @@
       
         
           
-            <h3 id="isNaN"><a href="#isNaN" class="headerlink" title="isNaN"></a>isNaN</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="string">'123'</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">123</span></span><br><span class="line"><span class="keyword">let</span> c = <span class="string">'string'</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(a))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(b))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(c))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="built_in">parseInt</span>(a))) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="built_in">parseInt</span>(b))) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="built_in">parseInt</span>(c))) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">parseInt</span>(a))) <span class="comment">// number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">parseInt</span>(b))) <span class="comment">// number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">parseInt</span>(c))) <span class="comment">// number</span></span><br><span class="line"><span class="string">``</span><span class="string">`  </span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string">### regx null  </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript</span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/^[A-Za-z0-9]&#123;1,&#125;$/</span>.test(<span class="literal">null</span>)) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+            <h1 id="isNaN"><a href="#isNaN" class="headerlink" title="isNaN"></a>isNaN</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="string">'123'</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">123</span></span><br><span class="line"><span class="keyword">let</span> c = <span class="string">'string'</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(a))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(b))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(c))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="built_in">parseInt</span>(a))) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="built_in">parseInt</span>(b))) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="built_in">parseInt</span>(c))) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">parseInt</span>(a))) <span class="comment">// number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">parseInt</span>(b))) <span class="comment">// number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">parseInt</span>(c))) <span class="comment">// number</span></span><br><span class="line"><span class="string">``</span><span class="string">`  </span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string"># regx null  </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript</span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/^[A-Za-z0-9]&#123;1,&#125;$/</span>.test(<span class="literal">null</span>)) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 
           
         
@@ -1785,7 +2106,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">文章</span>
                   </a>
                 </div>
@@ -1806,7 +2127,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">分類</span>
                   </a>
                 </div>
@@ -1879,7 +2202,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">30</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">32</span>
                     <span class="site-state-item-name">標籤</span>
                   </a>
                 </div>
