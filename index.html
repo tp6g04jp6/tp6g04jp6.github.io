@@ -15,7 +15,7 @@
 
 
 <html class="theme-next gemini use-motion" lang="zh-TW">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -163,7 +163,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-TW">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-TW">
 
   
   
@@ -174,7 +174,7 @@
   page-home">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta">
     
@@ -334,20 +334,20 @@
 
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/15/MySQL-linux/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tp6g04jp6">
       <meta itemprop="description" content="部落格,">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="KenPlay">
     </span>
 
@@ -384,7 +384,7 @@
                 
               
 
-              <time title="創建時間：2019-11-15 10:28:44 / 修改時間：12:11:07" itemprop="dateCreated datePublished" datetime="2019-11-15T10:28:44+08:00">2019-11-15</time>
+              <time title="創建時間：2019-11-15 10:28:44 / 修改時間：13:02:46" itemprop="dateCreated datePublished" datetime="2019-11-15T10:28:44+08:00">2019-11-15</time>
             
 
             
@@ -406,14 +406,14 @@
                 <span class="post-meta-item-text">分類於</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/筆記/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/筆記/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/筆記/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/筆記/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a></span>
 
                 
                 
@@ -449,9 +449,19 @@
       
         
           
-            <h1 id="安裝-MySQL"><a href="#安裝-MySQL" class="headerlink" title="安裝 MySQL"></a>安裝 MySQL</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install mysql-server  </span><br><span class="line">sudo apt install mysql-client  </span><br><span class="line">sudo apt install libmysqlclient-dev  </span><br><span class="line">```  </span><br><span class="line">    </span><br><span class="line"><span class="comment"># 測試資料庫是否安裝成功  </span></span><br><span class="line">安裝 net-tools, 使用 **netstat** 指令  </span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">sudo apt-get install net-tools  </span><br><span class="line">```  </span><br><span class="line">  </span><br><span class="line">安裝完成後使用 **netstat** 指令查詢  </span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">sudo netstat -tap | grep mysql  </span><br><span class="line">```  </span><br><span class="line">  </span><br><span class="line"><span class="comment"># 設置MysSQL允許遠端訪問  </span></span><br><span class="line">  </span><br><span class="line"><span class="comment">## 編輯 mysqld.cnf </span></span><br><span class="line"></span><br><span class="line">查詢 MySQL 設定檔, 並找到**真正**的設定檔案  </span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">sudo mysqladmin  </span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line">若系統使用MySQL, config 檔可能是mysqld.cnf</span><br><span class="line">若系統使用MariaDB, config 檔可能是50-server.cnf</span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">sudo vim /path/to/mysqld.cnf  </span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">修改**<span class="built_in">bind</span>**參數  </span><br><span class="line">原本可能:**<span class="built_in">bind</span> = 127.0.0.1** </span><br><span class="line">修改為: **<span class="built_in">bind</span> = 0.0.0.0**  </span><br><span class="line">  </span><br><span class="line"><span class="comment">## 進入 MySQL 服務  </span></span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">mysql -u root -p  </span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">輸入後看到 **mysql&gt;** 代表成功進入MySQL client  </span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="comment">## 執行授權命令  </span></span><br><span class="line"></span><br><span class="line">在 MySQL 環境下執行授權命令(授權給遠程任何電腦登錄資料庫)，輸入以下指令：  </span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">mysql&gt; GRANT ALL PRIVILEGES ON *.* TO <span class="string">'root'</span>@<span class="string">'%'</span> IDENTIFIED BY <span class="string">'你的密碼'</span> WITH GRANT OPTION;</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">PRIVILEGES ON *.* 代表權縣, <span class="string">'root'</span>代表現在的使用者, <span class="string">'%'</span>代表IP位置, 並輸入密碼  </span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="comment">## 更新設定  </span></span><br><span class="line"></span><br><span class="line">設定完成後下指令更新設定</span><br><span class="line">```sbash</span><br><span class="line">mysql&gt; flush privileges;</span><br></pre></td></tr></table></figure>
-<p>退出MySQL服務<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql&gt; <span class="built_in">exit</span></span><br></pre></td></tr></table></figure></p>
-<p>重啟MySQL<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo service mysql restart</span><br></pre></td></tr></table></figure></p>
+            <h1 id="安裝-MySQL"><a href="#安裝-MySQL" class="headerlink" title="安裝 MySQL"></a>安裝 MySQL</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server  </span><br><span class="line">sudo apt install mysql-client  </span><br><span class="line">sudo apt install libmysqlclient-dev</span><br></pre></td></tr></table></figure>
+<h1 id="測試資料庫是否安裝成功"><a href="#測試資料庫是否安裝成功" class="headerlink" title="測試資料庫是否安裝成功"></a>測試資料庫是否安裝成功</h1><p>安裝 net-tools, 使用 <strong>netstat</strong> 指令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install net-tools</span><br></pre></td></tr></table></figure></p>
+<p>安裝完成後使用 <strong>netstat</strong> 指令查詢<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo netstat -tap | grep mysql</span><br></pre></td></tr></table></figure></p>
+<h1 id="設置MysSQL允許遠端訪問"><a href="#設置MysSQL允許遠端訪問" class="headerlink" title="設置MysSQL允許遠端訪問"></a>設置MysSQL允許遠端訪問</h1><h2 id="編輯-mysqld-cnf"><a href="#編輯-mysqld-cnf" class="headerlink" title="編輯 mysqld.cnf"></a>編輯 mysqld.cnf</h2><p>查詢 MySQL 設定檔, 並找到<strong>真正</strong>的設定檔案<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mysqladmin</span><br></pre></td></tr></table></figure></p>
+<p>若系統使用MySQL, config 檔可能是mysqld.cnf<br>若系統使用MariaDB, config 檔可能是50-server.cnf<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /path/to/mysqld.cnf</span><br></pre></td></tr></table></figure></p>
+<p>修改<strong>bind</strong>參數<br>原本可能:<strong>bind = 127.0.0.1</strong><br>修改為: <strong>bind = 0.0.0.0</strong>  </p>
+<h2 id="進入-MySQL-服務"><a href="#進入-MySQL-服務" class="headerlink" title="進入 MySQL 服務"></a>進入 MySQL 服務</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+<p>輸入後看到 <strong>mysql&gt;</strong> 代表成功進入MySQL client  </p>
+<h2 id="執行授權命令"><a href="#執行授權命令" class="headerlink" title="執行授權命令"></a>執行授權命令</h2><p>在 MySQL 環境下執行授權命令(授權給遠程任何電腦登錄資料庫)，輸入以下指令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; GRANT ALL PRIVILEGES ON *.* TO <span class="string">'root'</span>@<span class="string">'%'</span> IDENTIFIED BY <span class="string">'你的密碼'</span> WITH GRANT OPTION;</span><br></pre></td></tr></table></figure></p>
+<p>PRIVILEGES ON <em>.</em> 代表權縣, ‘root’代表現在的使用者, ‘%’代表IP位置, 並輸入密碼  </p>
+<h2 id="更新設定"><a href="#更新設定" class="headerlink" title="更新設定"></a>更新設定</h2><p>設定完成後下指令更新設定<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; flush privileges;</span><br></pre></td></tr></table></figure></p>
+<p>退出MySQL服務<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="built_in">exit</span></span><br></pre></td></tr></table></figure></p>
+<p>重啟MySQL<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql restart</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -503,20 +513,20 @@
 
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/14/Functional-Programing-1-JavaScript-ES6-Syntax/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tp6g04jp6">
       <meta itemprop="description" content="部落格,">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="KenPlay">
     </span>
 
@@ -602,8 +612,8 @@
 </ul>
 <hr>
 <h1 id="First-class-Function"><a href="#First-class-Function" class="headerlink" title="First-class Function"></a>First-class Function</h1><p>當function在某個語言中可以被當成變數一樣, 就代表該語言擁有First-class Function<br>例如Function1可以做為參數傳遞到另一個Function2, 可以被Function3作為回傳值或指派到另一個變數  </p>
-<h2 id="Example-指定Function到一個變數"><a href="#Example-指定Function到一個變數" class="headerlink" title="Example: 指定Function到一個變數"></a>Example: 指定Function到一個變數</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'foobar'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Example-將Function作為參數傳遞"><a href="#Example-將Function作為參數傳遞" class="headerlink" title="Example: 將Function作為參數傳遞"></a>Example: 將Function作為參數傳遞</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello '</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greeting</span>(<span class="params">helloMessage, name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(helloMessage() + name)</span><br><span class="line">&#125;</span><br><span class="line">greeting(sayHellp, <span class="string">"JavaScript"</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="Example-指定Function到一個變數"><a href="#Example-指定Function到一個變數" class="headerlink" title="Example: 指定Function到一個變數"></a>Example: 指定Function到一個變數</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'foobar'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Example-將Function作為參數傳遞"><a href="#Example-將Function作為參數傳遞" class="headerlink" title="Example: 將Function作為參數傳遞"></a>Example: 將Function作為參數傳遞</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello '</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greeting</span>(<span class="params">helloMessage, name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(helloMessage() + name)</span><br><span class="line">&#125;</span><br><span class="line">greeting(sayHellp, <span class="string">"JavaScript"</span>)</span><br></pre></td></tr></table></figure>
 <h2 id="Example-回傳一個回傳一個Function"><a href="#Example-回傳一個回傳一個Function" class="headerlink" title="Example: 回傳一個回傳一個Function"></a>Example: 回傳一個回傳一個Function</h2>
           
         
@@ -655,20 +665,20 @@
 
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/14/WTF-JavaScript/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tp6g04jp6">
       <meta itemprop="description" content="部落格,">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="KenPlay">
     </span>
 
@@ -745,7 +755,7 @@
       
         
           
-            <h1 id="isNaN"><a href="#isNaN" class="headerlink" title="isNaN"></a>isNaN</h1><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="string">'123'</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">123</span></span><br><span class="line"><span class="keyword">let</span> c = <span class="string">'string'</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(a))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(b))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(c))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="built_in">parseInt</span>(a))) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="built_in">parseInt</span>(b))) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="built_in">parseInt</span>(c))) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">parseInt</span>(a))) <span class="comment">// number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">parseInt</span>(b))) <span class="comment">// number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">parseInt</span>(c))) <span class="comment">// number</span></span><br><span class="line"><span class="string">``</span><span class="string">`  </span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string"># regx null  </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript</span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/^[A-Za-z0-9]&#123;1,&#125;$/</span>.test(<span class="literal">null</span>)) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+            <h1 id="isNaN"><a href="#isNaN" class="headerlink" title="isNaN"></a>isNaN</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="string">'123'</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">123</span></span><br><span class="line"><span class="keyword">let</span> c = <span class="string">'string'</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(a))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(b))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(c))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="built_in">parseInt</span>(a))) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="built_in">parseInt</span>(b))) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="built_in">parseInt</span>(c))) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">parseInt</span>(a))) <span class="comment">// number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">parseInt</span>(b))) <span class="comment">// number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">parseInt</span>(c))) <span class="comment">// number</span></span><br><span class="line"><span class="string">``</span><span class="string">`  </span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string"># regx null  </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript</span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/^[A-Za-z0-9]&#123;1,&#125;$/</span>.test(<span class="literal">null</span>)) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 
           
         
@@ -797,20 +807,20 @@
 
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/14/Command-murmur/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tp6g04jp6">
       <meta itemprop="description" content="部落格,">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="KenPlay">
     </span>
 
@@ -869,7 +879,7 @@
                 <span class="post-meta-item-text">分類於</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/筆記/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/筆記/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a></span>
 
                 
                 
@@ -907,7 +917,7 @@
           
             <h1 id="Powersehll"><a href="#Powersehll" class="headerlink" title="Powersehll"></a>Powersehll</h1><ul>
 <li><p>使用 Powershell 從 Linux 上複製檔案到 windows  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ scp xxx@192.168.1.xxx:/path/to/file file</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scp xxx@192.168.1.xxx:/path/to/file file</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用 Powershell 從 Linux 上複製資料夾到 windows  </p>
 <pre><code class="bash">$ scp xxx@192.168.1.xxx:/path/to/dir dir
@@ -973,20 +983,20 @@
 
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/07/ubuntu-tool-setting/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tp6g04jp6">
       <meta itemprop="description" content="部落格,">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="KenPlay">
     </span>
 
@@ -1057,14 +1067,14 @@
                 <span class="post-meta-item-text">分類於</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/筆記/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/筆記/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/筆記/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/筆記/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a></span>
 
                 
                 
@@ -1151,20 +1161,20 @@
 
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/21/instagram_graph_api/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tp6g04jp6">
       <meta itemprop="description" content="部落格,">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="KenPlay">
     </span>
 
@@ -1235,7 +1245,7 @@
                 <span class="post-meta-item-text">分類於</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/筆記/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/筆記/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a></span>
 
                 
                 
@@ -1349,20 +1359,20 @@
 
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/17/node-request-promise/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tp6g04jp6">
       <meta itemprop="description" content="部落格,">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="KenPlay">
     </span>
 
@@ -1433,7 +1443,7 @@
                 <span class="post-meta-item-text">分類於</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/筆記/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/筆記/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a></span>
 
                 
                 
@@ -1469,7 +1479,7 @@
       
         
           
-            <h1 id="request-promise-nodeJS-module"><a href="#request-promise-nodeJS-module" class="headerlink" title="request-promise (nodeJS module)"></a>request-promise (nodeJS module)</h1><h2 id="response"><a href="#response" class="headerlink" title="response"></a>response</h2><h4 id="keys"><a href="#keys" class="headerlink" title="keys"></a>keys</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">[ <span class="string">'_readableState'</span>,</span><br><span class="line">  <span class="string">'readable'</span>,</span><br><span class="line">  <span class="string">'_events'</span>,</span><br><span class="line">  <span class="string">'_eventsCount'</span>,</span><br><span class="line">  <span class="string">'_maxListeners'</span>,</span><br><span class="line">  <span class="string">'socket'</span>,</span><br><span class="line">  <span class="string">'connection'</span>,</span><br><span class="line">  <span class="string">'httpVersionMajor'</span>,   <span class="comment">// 1</span></span><br><span class="line">  <span class="string">'httpVersionMinor'</span>,   <span class="comment">// 1</span></span><br><span class="line">  <span class="string">'httpVersion'</span>,        <span class="comment">// 1.1</span></span><br><span class="line">  <span class="string">'complete'</span>,</span><br><span class="line">  <span class="string">'headers'</span>,</span><br><span class="line">  <span class="string">'rawHeaders'</span>,</span><br><span class="line">  <span class="string">'trailers'</span>,</span><br><span class="line">  <span class="string">'rawTrailers'</span>,</span><br><span class="line">  <span class="string">'aborted'</span>,</span><br><span class="line">  <span class="string">'upgrade'</span>,</span><br><span class="line">  <span class="string">'url'</span>,</span><br><span class="line">  <span class="string">'method'</span>,</span><br><span class="line">  <span class="string">'statusCode'</span>,</span><br><span class="line">  <span class="string">'statusMessage'</span>,</span><br><span class="line">  <span class="string">'client'</span>,</span><br><span class="line">  <span class="string">'_consuming'</span>,</span><br><span class="line">  <span class="string">'_dumped'</span>,</span><br><span class="line">  <span class="string">'req'</span>,</span><br><span class="line">  <span class="string">'request'</span>,</span><br><span class="line">  <span class="string">'toJSON'</span>,</span><br><span class="line">  <span class="string">'caseless'</span>,</span><br><span class="line">  <span class="string">'body'</span> ]</span><br></pre></td></tr></table></figure>
+            <h1 id="request-promise-nodeJS-module"><a href="#request-promise-nodeJS-module" class="headerlink" title="request-promise (nodeJS module)"></a>request-promise (nodeJS module)</h1><h2 id="response"><a href="#response" class="headerlink" title="response"></a>response</h2><h4 id="keys"><a href="#keys" class="headerlink" title="keys"></a>keys</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">[ <span class="string">'_readableState'</span>,</span><br><span class="line">  <span class="string">'readable'</span>,</span><br><span class="line">  <span class="string">'_events'</span>,</span><br><span class="line">  <span class="string">'_eventsCount'</span>,</span><br><span class="line">  <span class="string">'_maxListeners'</span>,</span><br><span class="line">  <span class="string">'socket'</span>,</span><br><span class="line">  <span class="string">'connection'</span>,</span><br><span class="line">  <span class="string">'httpVersionMajor'</span>,   <span class="comment">// 1</span></span><br><span class="line">  <span class="string">'httpVersionMinor'</span>,   <span class="comment">// 1</span></span><br><span class="line">  <span class="string">'httpVersion'</span>,        <span class="comment">// 1.1</span></span><br><span class="line">  <span class="string">'complete'</span>,</span><br><span class="line">  <span class="string">'headers'</span>,</span><br><span class="line">  <span class="string">'rawHeaders'</span>,</span><br><span class="line">  <span class="string">'trailers'</span>,</span><br><span class="line">  <span class="string">'rawTrailers'</span>,</span><br><span class="line">  <span class="string">'aborted'</span>,</span><br><span class="line">  <span class="string">'upgrade'</span>,</span><br><span class="line">  <span class="string">'url'</span>,</span><br><span class="line">  <span class="string">'method'</span>,</span><br><span class="line">  <span class="string">'statusCode'</span>,</span><br><span class="line">  <span class="string">'statusMessage'</span>,</span><br><span class="line">  <span class="string">'client'</span>,</span><br><span class="line">  <span class="string">'_consuming'</span>,</span><br><span class="line">  <span class="string">'_dumped'</span>,</span><br><span class="line">  <span class="string">'req'</span>,</span><br><span class="line">  <span class="string">'request'</span>,</span><br><span class="line">  <span class="string">'toJSON'</span>,</span><br><span class="line">  <span class="string">'caseless'</span>,</span><br><span class="line">  <span class="string">'body'</span> ]</span><br></pre></td></tr></table></figure>
 <p>#### </p>
 
           
@@ -1522,20 +1532,20 @@
 
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/27/line-notify/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tp6g04jp6">
       <meta itemprop="description" content="部落格,">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="KenPlay">
     </span>
 
@@ -1594,7 +1604,7 @@
                 <span class="post-meta-item-text">分類於</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/LINE/" itemprop="url" rel="index"><span itemprop="name">LINE</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LINE/" itemprop="url" rel="index"><span itemprop="name">LINE</span></a></span>
 
                 
                 
@@ -1682,20 +1692,20 @@
 
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/14/trip-India/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tp6g04jp6">
       <meta itemprop="description" content="部落格,">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="KenPlay">
     </span>
 
@@ -1766,7 +1776,7 @@
                 <span class="post-meta-item-text">分類於</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/旅行/" itemprop="url" rel="index"><span itemprop="name">旅行</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/旅行/" itemprop="url" rel="index"><span itemprop="name">旅行</span></a></span>
 
                 
                 
@@ -1891,20 +1901,20 @@
 
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/13/hello-world/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tp6g04jp6">
       <meta itemprop="description" content="部落格,">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="KenPlay">
     </span>
 
@@ -1975,7 +1985,7 @@
                 <span class="post-meta-item-text">分類於</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/筆記/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/筆記/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a></span>
 
                 
                 
@@ -2012,15 +2022,15 @@
         
           
             <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a>  </p>
-<h3 id="HEXO-debug"><a href="#HEXO-debug" class="headerlink" title="HEXO debug"></a>HEXO debug</h3><figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">hexo</span> clean        <span class="comment"># 清除hexo cache</span></span><br><span class="line">hexo s --<span class="literal">debug</span>    <span class="comment"># 以debug模式啟動local host server</span></span><br></pre></td></tr></table></figure>
+<h3 id="HEXO-debug"><a href="#HEXO-debug" class="headerlink" title="HEXO debug"></a>HEXO debug</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo</span> clean        <span class="comment"># 清除hexo cache</span></span><br><span class="line">hexo s --<span class="literal">debug</span>    <span class="comment"># 以debug模式啟動local host server</span></span><br></pre></td></tr></table></figure>
 <h3 id="HEXO-other-cmd"><a href="#HEXO-other-cmd" class="headerlink" title="HEXO other cmd"></a>HEXO other cmd</h3><p>More info: <a href="https://hexo.io/zh-tw/docs/commands" target="_blank" rel="noopener">Info</a></p>
 
           
@@ -2093,7 +2103,7 @@
 
       <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">tp6g04jp6</p>
               <p class="site-description motion-element" itemprop="description">部落格,</p>
@@ -2257,7 +2267,7 @@
 </div>
 
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動 v3.8.0</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動 v3.9.0</div>
 
 
 

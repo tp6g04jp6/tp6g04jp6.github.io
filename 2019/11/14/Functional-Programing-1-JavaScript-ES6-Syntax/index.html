@@ -15,7 +15,7 @@
 
 
 <html class="theme-next gemini use-motion" lang="zh-TW">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -164,7 +164,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-TW">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-TW">
 
   
   
@@ -174,7 +174,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta">
     
@@ -334,20 +334,20 @@
 
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/14/Functional-Programing-1-JavaScript-ES6-Syntax/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tp6g04jp6">
       <meta itemprop="description" content="部落格,">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="KenPlay">
     </span>
 
@@ -429,8 +429,8 @@
 </ul>
 <hr>
 <h1 id="First-class-Function"><a href="#First-class-Function" class="headerlink" title="First-class Function"></a>First-class Function</h1><p>當function在某個語言中可以被當成變數一樣, 就代表該語言擁有First-class Function<br>例如Function1可以做為參數傳遞到另一個Function2, 可以被Function3作為回傳值或指派到另一個變數  </p>
-<h2 id="Example-指定Function到一個變數"><a href="#Example-指定Function到一個變數" class="headerlink" title="Example: 指定Function到一個變數"></a>Example: 指定Function到一個變數</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'foobar'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Example-將Function作為參數傳遞"><a href="#Example-將Function作為參數傳遞" class="headerlink" title="Example: 將Function作為參數傳遞"></a>Example: 將Function作為參數傳遞</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello '</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greeting</span>(<span class="params">helloMessage, name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(helloMessage() + name)</span><br><span class="line">&#125;</span><br><span class="line">greeting(sayHellp, <span class="string">"JavaScript"</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="Example-指定Function到一個變數"><a href="#Example-指定Function到一個變數" class="headerlink" title="Example: 指定Function到一個變數"></a>Example: 指定Function到一個變數</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'foobar'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Example-將Function作為參數傳遞"><a href="#Example-將Function作為參數傳遞" class="headerlink" title="Example: 將Function作為參數傳遞"></a>Example: 將Function作為參數傳遞</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello '</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greeting</span>(<span class="params">helloMessage, name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(helloMessage() + name)</span><br><span class="line">&#125;</span><br><span class="line">greeting(sayHellp, <span class="string">"JavaScript"</span>)</span><br></pre></td></tr></table></figure>
 <h2 id="Example-回傳一個回傳一個Function"><a href="#Example-回傳一個回傳一個Function" class="headerlink" title="Example: 回傳一個回傳一個Function"></a>Example: 回傳一個回傳一個Function</h2>
       
     </div>
@@ -530,7 +530,7 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">tp6g04jp6</p>
               <p class="site-description motion-element" itemprop="description">部落格,</p>
@@ -711,7 +711,7 @@
 </div>
 
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動 v3.8.0</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動 v3.9.0</div>
 
 
 
