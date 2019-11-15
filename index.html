@@ -1,313 +1,209 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html  lang="zh">
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.8.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <link rel="alternate" href="/atom.xml" title="KenPlay" type="application/atom+xml">
+    <meta charset="utf-8" />
 
-<link rel="stylesheet" href="/css/main.css">
+<meta name="generator" content="Hexo 3.8.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>KenPlay</title>
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
-
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.5.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '複製',
-      copy_success: '複製成功',
-      copy_failure: '複製失敗'
-    },
-    sidebarPadding: 40
-  };
-</script>
-
-  <meta name="description" content="部落格,">
+    <meta name="description" content="部落格,">
 <meta property="og:type" content="website">
 <meta property="og:title" content="KenPlay">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="KenPlay">
 <meta property="og:description" content="部落格,">
 <meta property="og:locale" content="zh-TW">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="KenPlay">
 <meta name="twitter:description" content="部落格,">
-
-<link rel="canonical" href="http://yoursite.com/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome: true,
-    isPost: false,
-    isPage: false,
-    isArchive: false
-  };
-</script>
-
-  <title>KenPlay</title>
-  
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
 
 
 
 
 
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
+<link rel="icon" href="/images/favicon.svg">
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">KenPlay</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切換導航欄">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-</div>
-
-
-<nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首頁</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>關於</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>標籤</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分類</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>歸檔</a>
-
-  </li>
-  </ul>
-
-</nav>
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content">
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
             
-
-  <div class="posts-expand">
-        
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/15/MySQL-linux/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="tp6g04jp6">
-      <meta itemprop="description" content="部落格,">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KenPlay">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/15/MySQL-linux/" class="post-title-link" itemprop="url">MySQL(linux)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-              
-
-              <time title="創建時間：2019-11-15 10:28:44 / 修改時間：11:38:44" itemprop="dateCreated datePublished" datetime="2019-11-15T10:28:44+08:00">2019-11-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/筆記/" itemprop="url" rel="index">
-                    <span itemprop="name">筆記</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/筆記/MySQL/" itemprop="url" rel="index">
-                    <span itemprop="name">MySQL</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
+                <img src="/images/logo.svg" alt="KenPlay" height="28">
+            
+            </a>
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="安裝-MySQL"><a href="#安裝-MySQL" class="headerlink" title="安裝 MySQL"></a>安裝 MySQL</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server  </span><br><span class="line">sudo apt install mysql-client  </span><br><span class="line">sudo apt install libmysqlclient-dev  </span><br><span class="line">```  </span><br><span class="line">    </span><br><span class="line"><span class="meta">#</span><span class="bash"> 測試資料庫是否安裝成功  </span></span><br><span class="line">安裝 net-tools, 使用 **netstat** 指令  </span><br><span class="line"></span><br><span class="line">``` shell</span><br><span class="line">sudo apt-get install net-tools  </span><br><span class="line">```  </span><br><span class="line">  </span><br><span class="line">安裝完成後使用 **netstat** 指令查詢  </span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">sudo netstat -tap | grep mysql  </span><br><span class="line">```  </span><br><span class="line">  </span><br><span class="line"><span class="meta">#</span><span class="bash"> 設置MysSQL允許遠端訪問  </span></span><br><span class="line">  </span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 編輯 mysqld.cnf </span></span></span><br><span class="line">查詢 MySQL 設定檔, 並找到**真正**的設定檔案  </span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">sudo mysqladmin  </span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line">若系統使用MySQL, config 檔可能是mysqld.cnf</span><br><span class="line">若系統使用MariaDB, config 檔可能是50-server.cnf</span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">sudo vim /path/to/mysqld.cnf  </span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">修改**bind**參數  </span><br><span class="line">原本可能:**bind = 127.0.0.1** </span><br><span class="line">修改為: **bind = 0.0.0.0**  </span><br><span class="line">  </span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 進入 MySQL 服務  </span></span></span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">mysql -u root -p  </span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">輸入後看到 **mysql&gt;** 代表成功進入MySQL client  </span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 執行授權命令  </span></span></span><br><span class="line">在 MySQL 環境下執行授權命令(授權給遠程任何電腦登錄資料庫)，輸入以下指令：  </span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> GRANT ALL PRIVILEGES ON *.* TO <span class="string">'root'</span>@<span class="string">'%'</span> IDENTIFIED BY <span class="string">'你的密碼'</span> WITH GRANT OPTION;</span></span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">PRIVILEGES ON *.* 代表權縣, 'root'代表現在的使用者, '%'代表IP位置, 並輸入密碼  </span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 更新設定  </span></span></span><br><span class="line">設定完成後下指令更新設定</span><br><span class="line">```sbash</span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> flush privileges;</span></span><br></pre></td></tr></table></figure>
-<p>退出MySQL服務<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="built_in">exit</span></span><br></pre></td></tr></table></figure></p>
-<p>重啟MySQL<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql restart</span><br></pre></td></tr></table></figure></p>
-
-      
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item is-active"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="搜尋" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
     </div>
-
+</nav>
     
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
     
+<div class="card">
     
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
+    <div class="card-content article ">
         
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/14/Functional-Programing-1-JavaScript-ES6-Syntax/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="tp6g04jp6">
-      <meta itemprop="description" content="部落格,">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KenPlay">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/14/Functional-Programing-1-JavaScript-ES6-Syntax/" class="post-title-link" itemprop="url">未命名</a>
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-11-15T02:28:44.000Z">2019-11-15</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/筆記/">筆記</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/筆記/MySQL/">MySQL</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 分鐘 閱讀文 (大約 285 個字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/11/15/MySQL-linux/">MySQL(linux)</a>
+            
         </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-              
-
-              <time title="創建時間：2019-11-14 19:59:37 / 修改時間：20:03:54" itemprop="dateCreated datePublished" datetime="2019-11-14T19:59:37+08:00">2019-11-14</time>
-            </span>
-
-          
+        <div class="content">
+            <h1 id="安裝-MySQL"><a href="#安裝-MySQL" class="headerlink" title="安裝 MySQL"></a>安裝 MySQL</h1><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server  </span><br><span class="line">sudo apt install mysql-client  </span><br><span class="line">sudo apt install libmysqlclient-dev  </span><br><span class="line">```  </span><br><span class="line">    </span><br><span class="line"><span class="hljs-meta">#</span> 測試資料庫是否安裝成功  </span><br><span class="line">安裝 net-tools, 使用 **netstat** 指令  </span><br><span class="line"></span><br><span class="line">``` shell</span><br><span class="line">sudo apt-get install net-tools  </span><br><span class="line">```  </span><br><span class="line">  </span><br><span class="line">安裝完成後使用 **netstat** 指令查詢  </span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">sudo netstat -tap | grep mysql  </span><br><span class="line">```  </span><br><span class="line">  </span><br><span class="line"><span class="hljs-meta">#</span> 設置MysSQL允許遠端訪問  </span><br><span class="line">  </span><br><span class="line"><span class="hljs-meta">#</span># 編輯 mysqld.cnf </span><br><span class="line"></span><br><span class="line">查詢 MySQL 設定檔, 並找到**真正**的設定檔案  </span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">sudo mysqladmin  </span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line">若系統使用MySQL, config 檔可能是mysqld.cnf</span><br><span class="line">若系統使用MariaDB, config 檔可能是50-server.cnf</span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">sudo vim /path/to/mysqld.cnf  </span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">修改**bind**參數  </span><br><span class="line">原本可能:**bind = 127.0.0.1** </span><br><span class="line">修改為: **bind = 0.0.0.0**  </span><br><span class="line">  </span><br><span class="line"><span class="hljs-meta">#</span># 進入 MySQL 服務  </span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">mysql -u root -p  </span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">輸入後看到 **mysql&gt;** 代表成功進入MySQL client  </span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span># 執行授權命令  </span><br><span class="line"></span><br><span class="line">在 MySQL 環境下執行授權命令(授權給遠程任何電腦登錄資料庫)，輸入以下指令：  </span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line"><span class="hljs-meta">mysql&gt;</span> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '你的密碼' WITH GRANT OPTION;</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">PRIVILEGES ON *.* 代表權縣, 'root'代表現在的使用者, '%'代表IP位置, 並輸入密碼  </span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span># 更新設定  </span><br><span class="line"></span><br><span class="line">設定完成後下指令更新設定</span><br><span class="line">```sbash</span><br><span class="line"><span class="hljs-meta">mysql&gt;</span> flush privileges;</span><br></pre></td></tr></table></figure>
+<p>退出MySQL服務<br><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="hljs-built_in">exit</span></span><br></pre></td></tr></table></figure></p>
+<p>重啟MySQL<br><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql restart</span><br></pre></td></tr></table></figure></p>
 
         </div>
-      </header>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
 
     
+<div class="card">
     
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <hr>
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-11-14T11:59:37.082Z">2019-11-14</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    1 分鐘 閱讀文 (大約 129 個字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/11/14/Functional-Programing-1-JavaScript-ES6-Syntax/"></a>
+            
+        </h1>
+        <div class="content">
+            <hr>
 <p>title: Functional Programing 1 - JavaScript ES6 Syntax<br>date: 2019-11-14 19:59:37<br>category:</p>
 <ul>
 <li>Functional Programing<br>tags:  </li>
@@ -319,134 +215,93 @@
 <h2 id="Example-指定Function到一個變數"><a href="#Example-指定Function到一個變數" class="headerlink" title="Example: 指定Function到一個變數"></a>Example: 指定Function到一個變數</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'foobar'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="Example-將Function作為參數傳遞"><a href="#Example-將Function作為參數傳遞" class="headerlink" title="Example: 將Function作為參數傳遞"></a>Example: 將Function作為參數傳遞</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello '</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greeting</span>(<span class="params">helloMessage, name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(helloMessage() + name)</span><br><span class="line">&#125;</span><br><span class="line">greeting(sayHellp, <span class="string">"JavaScript"</span>)</span><br></pre></td></tr></table></figure>
 <h2 id="Example-回傳一個回傳一個Function"><a href="#Example-回傳一個回傳一個Function" class="headerlink" title="Example: 回傳一個回傳一個Function"></a>Example: 回傳一個回傳一個Function</h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/14/WTF-JavaScript/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="tp6g04jp6">
-      <meta itemprop="description" content="部落格,">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KenPlay">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/14/WTF-JavaScript/" class="post-title-link" itemprop="url">WTF-JavaScript</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-              
-
-              <time title="創建時間：2019-11-14 19:07:01 / 修改時間：19:50:54" itemprop="dateCreated datePublished" datetime="2019-11-14T19:07:01+08:00">2019-11-14</time>
-            </span>
-
-          
-
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="isNaN"><a href="#isNaN" class="headerlink" title="isNaN"></a>isNaN</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="string">'123'</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">123</span></span><br><span class="line"><span class="keyword">let</span> c = <span class="string">'string'</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(a))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(b))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(c))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="built_in">parseInt</span>(a))) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="built_in">parseInt</span>(b))) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="built_in">parseInt</span>(c))) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">parseInt</span>(a))) <span class="comment">// number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">parseInt</span>(b))) <span class="comment">// number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">parseInt</span>(c))) <span class="comment">// number</span></span><br><span class="line"><span class="string">``</span><span class="string">`  </span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string"># regx null  </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript</span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/^[A-Za-z0-9]&#123;1,&#125;$/</span>.test(<span class="literal">null</span>)) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
         
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/14/Command-murmur/">
+        
+        
+    </div>
+</div>
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="tp6g04jp6">
-      <meta itemprop="description" content="部落格,">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KenPlay">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/14/Command-murmur/" class="post-title-link" itemprop="url">Command murmur</a>
-        </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2019-11-14 17:39:58 / 修改時間：18:10:51" itemprop="dateCreated datePublished" datetime="2019-11-14T17:39:58+08:00">2019-11-14</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/筆記/" itemprop="url" rel="index">
-                    <span itemprop="name">筆記</span>
-                  </a>
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-11-14T11:07:01.000Z">2019-11-14</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    幾秒 閱讀文 (大約 68 個字)
                 </span>
-            </span>
-
-          
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/11/14/WTF-JavaScript/">WTF-JavaScript</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="isNaN"><a href="#isNaN" class="headerlink" title="isNaN"></a>isNaN</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="string">'123'</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">123</span></span><br><span class="line"><span class="keyword">let</span> c = <span class="string">'string'</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(a))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(b))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(c))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="built_in">parseInt</span>(a))) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="built_in">parseInt</span>(b))) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="built_in">parseInt</span>(c))) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">parseInt</span>(a))) <span class="comment">// number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">parseInt</span>(b))) <span class="comment">// number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">parseInt</span>(c))) <span class="comment">// number</span></span><br><span class="line"><span class="string">``</span><span class="string">`  </span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string"># regx null  </span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript</span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/^[A-Za-z0-9]&#123;1,&#125;$/</span>.test(<span class="literal">null</span>)) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 
         </div>
-      </header>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
 
     
+<div class="card">
     
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Powersehll"><a href="#Powersehll" class="headerlink" title="Powersehll"></a>Powersehll</h1><ul>
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-11-14T09:39:58.000Z">2019-11-14</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/筆記/">筆記</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    幾秒 閱讀文 (大約 60 個字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/11/14/Command-murmur/">Command murmur</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="Powersehll"><a href="#Powersehll" class="headerlink" title="Powersehll"></a>Powersehll</h1><ul>
 <li><p>使用 Powershell 從 Linux 上複製檔案到 windows  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scp xxx@192.168.1.xxx:/path/to/file file</span><br></pre></td></tr></table></figure>
 </li>
@@ -464,162 +319,96 @@
 </li>
 </ul>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/07/ubuntu-tool-setting/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="tp6g04jp6">
-      <meta itemprop="description" content="部落格,">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KenPlay">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/07/ubuntu-tool-setting/" class="post-title-link" itemprop="url">ubuntu tool setting</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2019-11-07 09:59:13" itemprop="dateCreated datePublished" datetime="2019-11-07T09:59:13+08:00">2019-11-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-11-14 17:57:11" itemprop="dateModified" datetime="2019-11-14T17:57:11+08:00">2019-11-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/筆記/" itemprop="url" rel="index">
-                    <span itemprop="name">筆記</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/筆記/ubuntu/" itemprop="url" rel="index">
-                    <span itemprop="name">ubuntu</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
         
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/21/instagram_graph_api/">
+        
+        
+    </div>
+</div>
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="tp6g04jp6">
-      <meta itemprop="description" content="部落格,">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KenPlay">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/21/instagram_graph_api/" class="post-title-link" itemprop="url">Instagram Graph API</a>
-        </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2019-10-21 00:02:27" itemprop="dateCreated datePublished" datetime="2019-10-21T00:02:27+08:00">2019-10-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-11-07T01:59:13.000Z">2019-11-07</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/筆記/">筆記</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/筆記/ubuntu/">ubuntu</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    幾秒 閱讀文 (大約 0 個字)
                 </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-11-07 03:11:01" itemprop="dateModified" datetime="2019-11-07T03:11:01+08:00">2019-11-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/筆記/" itemprop="url" rel="index">
-                    <span itemprop="name">筆記</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
+                
+                
+            </div>
         </div>
-      </header>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/11/07/ubuntu-tool-setting/">ubuntu tool setting</a>
+            
+        </h1>
+        <div class="content">
+            
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
 
     
+<div class="card">
     
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Instagram-Graph-API"><a href="#Instagram-Graph-API" class="headerlink" title="Instagram Graph API"></a>Instagram Graph API</h3><h4 id="帳戶種類"><a href="#帳戶種類" class="headerlink" title="帳戶種類"></a>帳戶種類</h4><ol>
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-10-20T16:02:27.000Z">2019-10-21</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/筆記/">筆記</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 分鐘 閱讀文 (大約 271 個字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/10/21/instagram_graph_api/">Instagram Graph API</a>
+            
+        </h1>
+        <div class="content">
+            <h3 id="Instagram-Graph-API"><a href="#Instagram-Graph-API" class="headerlink" title="Instagram Graph API"></a>Instagram Graph API</h3><h4 id="帳戶種類"><a href="#帳戶種類" class="headerlink" title="帳戶種類"></a>帳戶種類</h4><ol>
 <li>Instagram Business Accounts  </li>
 <li>Instagram Creator Accounts  </li>
 </ol>
@@ -647,228 +436,144 @@
 <li>內容發佈僅適用於Instagram業務用戶。</li>
 </ol>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/17/node-request-promise/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="tp6g04jp6">
-      <meta itemprop="description" content="部落格,">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KenPlay">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/06/17/node-request-promise/" class="post-title-link" itemprop="url">node-request-promise</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2019-06-17 14:33:41" itemprop="dateCreated datePublished" datetime="2019-06-17T14:33:41+08:00">2019-06-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-11-07 02:20:03" itemprop="dateModified" datetime="2019-11-07T02:20:03+08:00">2019-11-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/筆記/" itemprop="url" rel="index">
-                    <span itemprop="name">筆記</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
         </div>
-      </header>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
 
     
+<div class="card">
     
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="request-promise-nodeJS-module"><a href="#request-promise-nodeJS-module" class="headerlink" title="request-promise (nodeJS module)"></a>request-promise (nodeJS module)</h1><h2 id="response"><a href="#response" class="headerlink" title="response"></a>response</h2><h4 id="keys"><a href="#keys" class="headerlink" title="keys"></a>keys</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">[ <span class="string">'_readableState'</span>,</span><br><span class="line">  <span class="string">'readable'</span>,</span><br><span class="line">  <span class="string">'_events'</span>,</span><br><span class="line">  <span class="string">'_eventsCount'</span>,</span><br><span class="line">  <span class="string">'_maxListeners'</span>,</span><br><span class="line">  <span class="string">'socket'</span>,</span><br><span class="line">  <span class="string">'connection'</span>,</span><br><span class="line">  <span class="string">'httpVersionMajor'</span>,   <span class="comment">// 1</span></span><br><span class="line">  <span class="string">'httpVersionMinor'</span>,   <span class="comment">// 1</span></span><br><span class="line">  <span class="string">'httpVersion'</span>,        <span class="comment">// 1.1</span></span><br><span class="line">  <span class="string">'complete'</span>,</span><br><span class="line">  <span class="string">'headers'</span>,</span><br><span class="line">  <span class="string">'rawHeaders'</span>,</span><br><span class="line">  <span class="string">'trailers'</span>,</span><br><span class="line">  <span class="string">'rawTrailers'</span>,</span><br><span class="line">  <span class="string">'aborted'</span>,</span><br><span class="line">  <span class="string">'upgrade'</span>,</span><br><span class="line">  <span class="string">'url'</span>,</span><br><span class="line">  <span class="string">'method'</span>,</span><br><span class="line">  <span class="string">'statusCode'</span>,</span><br><span class="line">  <span class="string">'statusMessage'</span>,</span><br><span class="line">  <span class="string">'client'</span>,</span><br><span class="line">  <span class="string">'_consuming'</span>,</span><br><span class="line">  <span class="string">'_dumped'</span>,</span><br><span class="line">  <span class="string">'req'</span>,</span><br><span class="line">  <span class="string">'request'</span>,</span><br><span class="line">  <span class="string">'toJSON'</span>,</span><br><span class="line">  <span class="string">'caseless'</span>,</span><br><span class="line">  <span class="string">'body'</span> ]</span><br></pre></td></tr></table></figure>
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-06-17T06:33:41.000Z">2019-06-17</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/筆記/">筆記</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    幾秒 閱讀文 (大約 36 個字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/06/17/node-request-promise/">node-request-promise</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="request-promise-nodeJS-module"><a href="#request-promise-nodeJS-module" class="headerlink" title="request-promise (nodeJS module)"></a>request-promise (nodeJS module)</h1><h2 id="response"><a href="#response" class="headerlink" title="response"></a>response</h2><h4 id="keys"><a href="#keys" class="headerlink" title="keys"></a>keys</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">[ <span class="string">'_readableState'</span>,</span><br><span class="line">  <span class="string">'readable'</span>,</span><br><span class="line">  <span class="string">'_events'</span>,</span><br><span class="line">  <span class="string">'_eventsCount'</span>,</span><br><span class="line">  <span class="string">'_maxListeners'</span>,</span><br><span class="line">  <span class="string">'socket'</span>,</span><br><span class="line">  <span class="string">'connection'</span>,</span><br><span class="line">  <span class="string">'httpVersionMajor'</span>,   <span class="comment">// 1</span></span><br><span class="line">  <span class="string">'httpVersionMinor'</span>,   <span class="comment">// 1</span></span><br><span class="line">  <span class="string">'httpVersion'</span>,        <span class="comment">// 1.1</span></span><br><span class="line">  <span class="string">'complete'</span>,</span><br><span class="line">  <span class="string">'headers'</span>,</span><br><span class="line">  <span class="string">'rawHeaders'</span>,</span><br><span class="line">  <span class="string">'trailers'</span>,</span><br><span class="line">  <span class="string">'rawTrailers'</span>,</span><br><span class="line">  <span class="string">'aborted'</span>,</span><br><span class="line">  <span class="string">'upgrade'</span>,</span><br><span class="line">  <span class="string">'url'</span>,</span><br><span class="line">  <span class="string">'method'</span>,</span><br><span class="line">  <span class="string">'statusCode'</span>,</span><br><span class="line">  <span class="string">'statusMessage'</span>,</span><br><span class="line">  <span class="string">'client'</span>,</span><br><span class="line">  <span class="string">'_consuming'</span>,</span><br><span class="line">  <span class="string">'_dumped'</span>,</span><br><span class="line">  <span class="string">'req'</span>,</span><br><span class="line">  <span class="string">'request'</span>,</span><br><span class="line">  <span class="string">'toJSON'</span>,</span><br><span class="line">  <span class="string">'caseless'</span>,</span><br><span class="line">  <span class="string">'body'</span> ]</span><br></pre></td></tr></table></figure>
 <p>#### </p>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
+        </div>
         
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/27/line-notify/">
+        
+        
+    </div>
+</div>
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="tp6g04jp6">
-      <meta itemprop="description" content="部落格,">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KenPlay">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/05/27/line-notify/" class="post-title-link" itemprop="url">LINE Notify</a>
-        </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2019-05-27 00:02:27 / 修改時間：15:49:26" itemprop="dateCreated datePublished" datetime="2019-05-27T00:02:27+08:00">2019-05-27</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/LINE/" itemprop="url" rel="index">
-                    <span itemprop="name">LINE</span>
-                  </a>
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-05-26T16:02:27.000Z">2019-05-27</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/LINE/">LINE</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    幾秒 閱讀文 (大約 0 個字)
                 </span>
-            </span>
-
-          
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/05/27/line-notify/">LINE Notify</a>
+            
+        </h1>
+        <div class="content">
+            <p># </p>
 
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p># </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
         
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/14/trip-India/">
+        
+        
+    </div>
+</div>
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="tp6g04jp6">
-      <meta itemprop="description" content="部落格,">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KenPlay">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/01/14/trip-India/" class="post-title-link" itemprop="url">印度(India) : 北印三角</a>
-        </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2019-01-14 00:02:27" itemprop="dateCreated datePublished" datetime="2019-01-14T00:02:27+08:00">2019-01-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-01-13T16:02:27.000Z">2019-01-14</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/旅行/">旅行</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8 分鐘 閱讀文 (大約 1188 個字)
                 </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-11-07 04:08:30" itemprop="dateModified" datetime="2019-11-07T04:08:30+08:00">2019-11-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/旅行/" itemprop="url" rel="index">
-                    <span itemprop="name">旅行</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
+                
+                
+            </div>
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><a data-flickr-embed="true" href="https://www.flickr.com/photos/46011555@N07/45668510492/" title="一望無盡 | 針葉林" data-header="false" data-footer="true" data-context="false" target="_blank" rel="noopener"><img src="https://live.staticflickr.com/1907/45668510492_f4415d2a8e_c.jpg" width="800" height="450" alt="一望無盡 | 針葉林"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>  
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/01/14/trip-India/">印度(India) : 北印三角</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><a data-flickr-embed="true" href="https://www.flickr.com/photos/46011555@N07/45668510492/" title="一望無盡 | 針葉林" data-header="false" data-footer="true" data-context="false" target="_blank" rel="noopener"><img src="https://live.staticflickr.com/1907/45668510492_f4415d2a8e_c.jpg" width="800" height="450" alt="一望無盡 | 針葉林"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>  
 <div class="note default">
             <p>一直想找個機會紀錄印度旅行的一些心得與體驗<br>不過文筆不好只能以流水帳與看照片說故事的方式記錄<br>一段瘋狂疲憊但回想起來又念念難忘的旅程<br>在各城市移動的時間與方式有以google mymap做了簡單的紀錄  </p><ul><li><b>台北-新加坡-新德里-列城 | airline<b></b></b></li><li><b>列城-新德里-瓦拉納西 | airline<b></b></b></li><li><b>瓦拉納西-新德里 | airline<b></b></b></li><li><b>新德里-Jodhpur | train | 夜車約10小時<b></b></b></li><li><b>Jodhpur-Jaipur | bus | 約4小時<b></b></b></li><li><b>Jaipur-Agra | taxi | 約6小時<b></b></b></li><li><b>Agra-新德里 | bus | 約5小時<b></b></b></li></ul>
           </div> 
@@ -907,81 +612,51 @@
             <p>印度本來就是個民族大熔爐, 加上地緣關係這裡非常多的藏族,<br>北北印的人們給我的印象都很親切, 即使這裡屬於觀光區, 但不會強制推銷, 誘騙觀光客,<br>讓我們在談每件事時不需要擔心受騙, 若說有天要再來印度旅行, 我想Leh會是我的首選</p>
           </div>  
 <h1 id="瓦拉納西-Varanasi"><a href="#瓦拉納西-Varanasi" class="headerlink" title="瓦拉納西 (Varanasi)"></a>瓦拉納西 (Varanasi)</h1><h1 id="焦特布爾-Jodhpur"><a href="#焦特布爾-Jodhpur" class="headerlink" title="焦特布爾 (Jodhpur)"></a>焦特布爾 (Jodhpur)</h1><h1 id="齋浦爾-Jaipur"><a href="#齋浦爾-Jaipur" class="headerlink" title="齋浦爾 (Jaipur)"></a>齋浦爾 (Jaipur)</h1><h1 id="阿格拉-Agra"><a href="#阿格拉-Agra" class="headerlink" title="阿格拉 (Agra)"></a>阿格拉 (Agra)</h1><h1 id="新德里-Delhi"><a href="#新德里-Delhi" class="headerlink" title="新德里 (Delhi)"></a>新德里 (Delhi)</h1>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/13/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="tp6g04jp6">
-      <meta itemprop="description" content="部落格,">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KenPlay">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/01/13/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2019-01-13 20:35:23" itemprop="dateCreated datePublished" datetime="2019-01-13T20:35:23+08:00">2019-01-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-11-08 00:55:41" itemprop="dateModified" datetime="2019-11-08T00:55:41+08:00">2019-11-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/筆記/" itemprop="url" rel="index">
-                    <span itemprop="name">筆記</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
         </div>
-      </header>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
 
     
+<div class="card">
     
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-01-13T12:35:23.266Z">2019-01-13</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/筆記/">筆記</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    1 分鐘 閱讀文 (大約 154 個字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/01/13/hello-world/">Hello World</a>
+            
+        </h1>
+        <div class="content">
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
@@ -993,168 +668,1258 @@
 <h3 id="HEXO-debug"><a href="#HEXO-debug" class="headerlink" title="HEXO debug"></a>HEXO debug</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean        # 清除hexo cache</span><br><span class="line">hexo s --debug    # 以debug模式啟動local host server</span><br></pre></td></tr></table></figure>
 <h3 id="HEXO-other-cmd"><a href="#HEXO-other-cmd" class="headerlink" title="HEXO other cmd"></a>HEXO other cmd</h3><p>More info: <a href="https://hexo.io/zh-tw/docs/commands" target="_blank" rel="noopener">Info</a></p>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-  </div>
-
-  
-
-
-
-          </div>
-          
-
         </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目錄
-        </li>
-        <li class="sidebar-nav-overview">
-          本站概要
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">tp6g04jp6</p>
-  <div class="site-description" itemprop="description">部落格,</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
-          <span class="site-state-item-name">文章</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">5</span>
-        <span class="site-state-item-name">分類</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">32</span>
-        <span class="site-state-item-name">標籤</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="feed-link motion-element">
-    <a href="/atom.xml" rel="alternate">
-      <i class="fa fa-rss"></i>RSS
-    </a>
-  </div>
-
-
-
-      </div>
-
+        
+        
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">tp6g04jp6</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動 v3.8.0
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主題 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
-  </div>
 
+
+
+
+
+
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
         
-
-
-
-
-
-
-
-
-
-
-
-
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="/images/avatar.png" alt="Your name">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Your name
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Your title
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Your location</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            10
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分類
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            5
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        標籤
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            32
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
         
-      </div>
-    </footer>
-  </div>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank">
+                追蹤</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/ppoffice">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Facebook" href="https://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Dribbble" href="https://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            連結
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://hexo.io" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Hexo</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">hexo.io</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/ppoffice" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">PPOffice</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
 
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
-<script src="/js/schemes/pisces.js"></script>
-<script src="/js/next-boot.js"></script>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分類
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/LINE/">
+            <span class="level-start">
+                <span class="level-item">LINE</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/旅行/">
+            <span class="level-start">
+                <span class="level-item">旅行</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/筆記/">
+            <span class="level-start">
+                <span class="level-item">筆記</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">6</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/筆記/MySQL/">
+            <span class="level-start">
+                <span class="level-item">MySQL</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/筆記/ubuntu/">
+            <span class="level-start">
+                <span class="level-item">ubuntu</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            標籤雲
+        </h3>
+        <a href="/tags/A7II/" style="font-size: 10px;">A7II</a> <a href="/tags/Batis-18mm-f2-8/" style="font-size: 10px;">Batis 18mm f2.8</a> <a href="/tags/EM10II/" style="font-size: 10px;">EM10II</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/LINE/" style="font-size: 10px;">LINE</a> <a href="/tags/LINE-Notify/" style="font-size: 10px;">LINE Notify</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/NodeJS/" style="font-size: 10px;">NodeJS</a> <a href="/tags/Panasonic-35-100mm-f2-8/" style="font-size: 10px;">Panasonic 35-100mm f2.8</a> <a href="/tags/Tamron-28-75mm-f2-8/" style="font-size: 10px;">Tamron 28-75mm f2.8</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/fb/" style="font-size: 10px;">fb</a> <a href="/tags/graph-API/" style="font-size: 10px;">graph API</a> <a href="/tags/ig/" style="font-size: 10px;">ig</a> <a href="/tags/instagram/" style="font-size: 10px;">instagram</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mariaDB/" style="font-size: 10px;">mariaDB</a> <a href="/tags/nodeJS/" style="font-size: 10px;">nodeJS</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/olympus/" style="font-size: 10px;">olympus</a> <a href="/tags/panasonic/" style="font-size: 10px;">panasonic</a> <a href="/tags/powershell/" style="font-size: 10px;">powershell</a> <a href="/tags/rabbitmq/" style="font-size: 10px;">rabbitmq</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/scp/" style="font-size: 10px;">scp</a> <a href="/tags/sony/" style="font-size: 10px;">sony</a> <a href="/tags/ubuntu/" style="font-size: 20px;">ubuntu</a> <a href="/tags/北北印/" style="font-size: 10px;">北北印</a> <a href="/tags/北印/" style="font-size: 10px;">北印</a> <a href="/tags/印度/" style="font-size: 10px;">印度</a> <a href="/tags/旅行/" style="font-size: 10px;">旅行</a> <a href="/tags/筆記/" style="font-size: 10px;">筆記</a>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/11/15/MySQL-linux/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="MySQL(linux)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-15T02:28:44.000Z">2019-11-15</time></div>
+                    <a href="/2019/11/15/MySQL-linux/" class="title has-link-black-ter is-size-6 has-text-weight-normal">MySQL(linux)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/筆記/">筆記</a> / <a class="has-link-grey -link" href="/categories/筆記/MySQL/">MySQL</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/11/14/Functional-Programing-1-JavaScript-ES6-Syntax/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-14T11:59:37.082Z">2019-11-14</time></div>
+                    <a href="/2019/11/14/Functional-Programing-1-JavaScript-ES6-Syntax/" class="title has-link-black-ter is-size-6 has-text-weight-normal"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/11/14/WTF-JavaScript/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="WTF-JavaScript">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-14T11:07:01.000Z">2019-11-14</time></div>
+                    <a href="/2019/11/14/WTF-JavaScript/" class="title has-link-black-ter is-size-6 has-text-weight-normal">WTF-JavaScript</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/11/14/Command-murmur/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Command murmur">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-14T09:39:58.000Z">2019-11-14</time></div>
+                    <a href="/2019/11/14/Command-murmur/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Command murmur</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/筆記/">筆記</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/11/07/ubuntu-tool-setting/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="ubuntu tool setting">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-07T01:59:13.000Z">2019-11-07</time></div>
+                    <a href="/2019/11/07/ubuntu-tool-setting/" class="title has-link-black-ter is-size-6 has-text-weight-normal">ubuntu tool setting</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/筆記/">筆記</a> / <a class="has-link-grey -link" href="/categories/筆記/ubuntu/">ubuntu</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            彙整
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">一月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                標籤
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/A7II/">
+                        <span class="tag">A7II</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Batis-18mm-f2-8/">
+                        <span class="tag">Batis 18mm f2.8</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/EM10II/">
+                        <span class="tag">EM10II</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/JavaScript/">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/LINE/">
+                        <span class="tag">LINE</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/LINE-Notify/">
+                        <span class="tag">LINE Notify</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MySQL/">
+                        <span class="tag">MySQL</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/NodeJS/">
+                        <span class="tag">NodeJS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Panasonic-35-100mm-f2-8/">
+                        <span class="tag">Panasonic 35-100mm f2.8</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Tamron-28-75mm-f2-8/">
+                        <span class="tag">Tamron 28-75mm f2.8</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/facebook/">
+                        <span class="tag">facebook</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/fb/">
+                        <span class="tag">fb</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/graph-API/">
+                        <span class="tag">graph API</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ig/">
+                        <span class="tag">ig</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/instagram/">
+                        <span class="tag">instagram</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/linux/">
+                        <span class="tag">linux</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/mariaDB/">
+                        <span class="tag">mariaDB</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nodeJS/">
+                        <span class="tag">nodeJS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/npm/">
+                        <span class="tag">npm</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/olympus/">
+                        <span class="tag">olympus</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/panasonic/">
+                        <span class="tag">panasonic</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/powershell/">
+                        <span class="tag">powershell</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/rabbitmq/">
+                        <span class="tag">rabbitmq</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/redis/">
+                        <span class="tag">redis</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/scp/">
+                        <span class="tag">scp</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/sony/">
+                        <span class="tag">sony</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ubuntu/">
+                        <span class="tag">ubuntu</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/北北印/">
+                        <span class="tag">北北印</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/北印/">
+                        <span class="tag">北印</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/印度/">
+                        <span class="tag">印度</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/旅行/">
+                        <span class="tag">旅行</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/筆記/">
+                        <span class="tag">筆記</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
 
 
 
-  
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/11/15/MySQL-linux/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="MySQL(linux)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-15T02:28:44.000Z">2019-11-15</time></div>
+                    <a href="/2019/11/15/MySQL-linux/" class="title has-link-black-ter is-size-6 has-text-weight-normal">MySQL(linux)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/筆記/">筆記</a> / <a class="has-link-grey -link" href="/categories/筆記/MySQL/">MySQL</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/11/14/Functional-Programing-1-JavaScript-ES6-Syntax/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-14T11:59:37.082Z">2019-11-14</time></div>
+                    <a href="/2019/11/14/Functional-Programing-1-JavaScript-ES6-Syntax/" class="title has-link-black-ter is-size-6 has-text-weight-normal"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/11/14/WTF-JavaScript/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="WTF-JavaScript">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-14T11:07:01.000Z">2019-11-14</time></div>
+                    <a href="/2019/11/14/WTF-JavaScript/" class="title has-link-black-ter is-size-6 has-text-weight-normal">WTF-JavaScript</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/11/14/Command-murmur/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Command murmur">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-14T09:39:58.000Z">2019-11-14</time></div>
+                    <a href="/2019/11/14/Command-murmur/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Command murmur</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/筆記/">筆記</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/11/07/ubuntu-tool-setting/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="ubuntu tool setting">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-07T01:59:13.000Z">2019-11-07</time></div>
+                    <a href="/2019/11/07/ubuntu-tool-setting/" class="title has-link-black-ter is-size-6 has-text-weight-normal">ubuntu tool setting</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/筆記/">筆記</a> / <a class="has-link-grey -link" href="/categories/筆記/ubuntu/">ubuntu</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            彙整
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">一月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                標籤
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/A7II/">
+                        <span class="tag">A7II</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Batis-18mm-f2-8/">
+                        <span class="tag">Batis 18mm f2.8</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/EM10II/">
+                        <span class="tag">EM10II</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/JavaScript/">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/LINE/">
+                        <span class="tag">LINE</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/LINE-Notify/">
+                        <span class="tag">LINE Notify</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MySQL/">
+                        <span class="tag">MySQL</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/NodeJS/">
+                        <span class="tag">NodeJS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Panasonic-35-100mm-f2-8/">
+                        <span class="tag">Panasonic 35-100mm f2.8</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Tamron-28-75mm-f2-8/">
+                        <span class="tag">Tamron 28-75mm f2.8</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/facebook/">
+                        <span class="tag">facebook</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/fb/">
+                        <span class="tag">fb</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/graph-API/">
+                        <span class="tag">graph API</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ig/">
+                        <span class="tag">ig</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/instagram/">
+                        <span class="tag">instagram</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/linux/">
+                        <span class="tag">linux</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/mariaDB/">
+                        <span class="tag">mariaDB</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nodeJS/">
+                        <span class="tag">nodeJS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/npm/">
+                        <span class="tag">npm</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/olympus/">
+                        <span class="tag">olympus</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/panasonic/">
+                        <span class="tag">panasonic</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/powershell/">
+                        <span class="tag">powershell</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/rabbitmq/">
+                        <span class="tag">rabbitmq</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/redis/">
+                        <span class="tag">redis</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/scp/">
+                        <span class="tag">scp</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/sony/">
+                        <span class="tag">sony</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ubuntu/">
+                        <span class="tag">ubuntu</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/北北印/">
+                        <span class="tag">北北印</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/北印/">
+                        <span class="tag">北印</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/印度/">
+                        <span class="tag">印度</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/旅行/">
+                        <span class="tag">旅行</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/筆記/">
+                        <span class="tag">筆記</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="KenPlay" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 tp6g04jp6&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-TW");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
 
 
 
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="回到頁首" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 
+<script src="/js/main.js" defer></script>
 
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="請輸入關鍵字..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
 </body>
 </html>
