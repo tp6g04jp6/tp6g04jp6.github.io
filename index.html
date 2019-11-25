@@ -384,7 +384,7 @@
                 
               
 
-              <time title="創建時間：2019-11-25 20:22:25 / 修改時間：21:00:25" itemprop="dateCreated datePublished" datetime="2019-11-25T20:22:25+08:00">2019-11-25</time>
+              <time title="創建時間：2019-11-25 20:22:25 / 修改時間：21:11:39" itemprop="dateCreated datePublished" datetime="2019-11-25T20:22:25+08:00">2019-11-25</time>
             
 
             
@@ -442,11 +442,11 @@
       
         
           
-            <h1 id="Logout-OR-Invalidate-Token"><a href="#Logout-OR-Invalidate-Token" class="headerlink" title="Logout OR Invalidate Token"></a>Logout OR Invalidate Token</h1><p>為了要解決 <strong>登出</strong> 或者 <strong>刪除token</strong> 問題, stackover flow 討論以下幾種可能的解法, <a href="https://stackoverflow.com/questions/21978658/invalidating-json-web-tokens" target="_blank" rel="noopener">來源: invalidating-json-web-tokens</a>  </p>
+            <h1 id="Logout-OR-Invalidate-Token"><a href="#Logout-OR-Invalidate-Token" class="headerlink" title="Logout OR Invalidate Token"></a>Logout OR Invalidate Token</h1><p><a href="https://stackoverflow.com/questions/21978658/invalidating-json-web-tokens" target="_blank" rel="noopener">來源: Invalidating JSON Web Tokens</a><br>為了要解決 <strong>登出</strong> 或者 <strong>刪除token</strong> 問題, stackover flow 討論以下幾種可能的解法,  </p>
 <ol>
 <li><p>直接在 client 將此 token 從 local storage 或者 cookies 移除<br>這個方法對server端的安全沒有幫助, 攻擊者可以在第一次登入取得token時就先將token給儲存下來, server端還是會讓這組token有效, 對比session destroy, server端會讓session完全無效, 但這個方法對一般使用者來說確實是可以實作 <strong>登出功能</strong>   </p>
 </li>
-<li><p>建立一個token黑名單<br>可以把想要刪除或者使之無效的token加入黑名單, 直到token無效為止 (在Redis的key-value storage有很好的實作), 這樣在每次操作都需要比對token在DB (Redis)是否token在黑名單, 這樣有點降低使用token-bases-auth的必要, 因為每次檢查token都還要對DB做操作, 不過好處是儲存token的空間 <strong>可能</strong> 會更小, 因為DB只要儲存還有效的 token, 當 token 無效時DB會自動expire delete掉  </p>
+<li><p>建立一個token黑名單<br>可以把想要刪除或者使之無效的 token 加入黑名單, 直到 token 無效為止 (在 Redis 的 key-value storage 有很好的實作), 這樣在每次操作都需要比對 token 是否在 DB (Redis) 的黑名單, 這樣有點降低使用 token-bases-auth的必要, 因為每次檢查 token 都還要對 DB 做操作, 不過好處是儲存 token 的空間 <strong>可能</strong> 會更小, 因為DB只要儲存還有效的 token, 當 token 無效時 DB 會自動 expire delete 掉  </p>
 </li>
 <li><p>讓token有效時間很短並且時常更換<br>簡單說可以設定一個只有一個有效期間很短的token, 並且在每次操作時都更換有效時間產生新的token, 這樣token就會保持最新狀態, 但這個方法的問題在於沒辦法保持很長久的用戶登入狀態 ( 要取決於盜期間格的時間 )  </p>
 </li>
