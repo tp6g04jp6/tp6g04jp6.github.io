@@ -384,12 +384,24 @@
                 
               
 
-              <time title="創建時間：2019-11-25 20:22:25 / 修改時間：21:58:12" itemprop="dateCreated datePublished" datetime="2019-11-25T20:22:25+08:00">2019-11-25</time>
+              <time title="創建時間：2019-11-25 20:22:25" itemprop="dateCreated datePublished" datetime="2019-11-25T20:22:25+08:00">2019-11-25</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-12-06 15:54:40" itemprop="dateModified" datetime="2019-12-06T15:54:40+08:00">2019-12-06</time>
               
             
           </span>
@@ -442,13 +454,13 @@
       
         
           
-            <h1 id="Base64-encode-amp-decode-in-Browser"><a href="#Base64-encode-amp-decode-in-Browser" class="headerlink" title="Base64 encode &amp; decode in Browser"></a>Base64 encode &amp; decode in Browser</h1><h2 id="encode"><a href="#encode" class="headerlink" title="encode:"></a>encode:</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(btoa(<span class="string">'this is encode'</span>)) <span class="comment">// dGhpcyBpcyBlbmNvZGU=</span></span><br></pre></td></tr></table></figure>
-<h2 id="decode"><a href="#decode" class="headerlink" title="decode:"></a>decode:</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(atob(<span class="string">'dGhpcyBpcyBlbmNvZGU='</span>)) <span class="comment">// this is encode</span></span><br></pre></td></tr></table></figure>
-<h1 id="Base64-encode-amp-decode-in-NodeJS"><a href="#Base64-encode-amp-decode-in-NodeJS" class="headerlink" title="Base64 encode &amp; decode in NodeJS"></a>Base64 encode &amp; decode in NodeJS</h1><h2 id="encode-1"><a href="#encode-1" class="headerlink" title="encode:"></a>encode:</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(Buffer.from(<span class="string">"Hello World"</span>).toString(<span class="string">'base64'</span>)) <span class="comment">// SGVsbG8gV29ybGQ=</span></span><br></pre></td></tr></table></figure>
-<h2 id="decode-1"><a href="#decode-1" class="headerlink" title="decode:"></a>decode:</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(Buffer.from(<span class="string">"SGVsbG8gV29ybGQ="</span>, <span class="string">'base64'</span>).toString(<span class="string">'ascii'</span>)) <span class="comment">// Hello World</span></span><br></pre></td></tr></table></figure>
-<h1 id="Base64-encode-amp-decode-in-PHP"><a href="#Base64-encode-amp-decode-in-PHP" class="headerlink" title="Base64 encode &amp; decode in PHP"></a>Base64 encode &amp; decode in PHP</h1><h2 id="encode-2"><a href="#encode-2" class="headerlink" title="encode"></a>encode</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">base64_encode($str);</span><br></pre></td></tr></table></figure>
-<h2 id="decode-2"><a href="#decode-2" class="headerlink" title="decode"></a>decode</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">base64_decode($str);</span><br></pre></td></tr></table></figure>
-<h1 id="Logout-OR-Invalidate-Token"><a href="#Logout-OR-Invalidate-Token" class="headerlink" title="Logout OR Invalidate Token"></a>Logout OR Invalidate Token</h1><p><a href="https://stackoverflow.com/questions/21978658/invalidating-json-web-tokens" target="_blank" rel="noopener">來源: Invalidating JSON Web Tokens</a><br>為了要解決 <strong>登出</strong> 或者 <strong>刪除token</strong> 問題, stackover flow 討論以下幾種可能的解法,  </p>
+            <h1 id="Base64-encode-amp-decode"><a href="#Base64-encode-amp-decode" class="headerlink" title="Base64 encode &amp; decode"></a>Base64 encode &amp; decode</h1><h2 id="Base64-encode-amp-decode-in-Browser"><a href="#Base64-encode-amp-decode-in-Browser" class="headerlink" title="Base64 encode &amp; decode in Browser"></a>Base64 encode &amp; decode in Browser</h2><h3 id="encode"><a href="#encode" class="headerlink" title="encode:"></a>encode:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(btoa(<span class="string">'this is encode'</span>)) <span class="comment">// dGhpcyBpcyBlbmNvZGU=</span></span><br></pre></td></tr></table></figure>
+<h3 id="decode"><a href="#decode" class="headerlink" title="decode:"></a>decode:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(atob(<span class="string">'dGhpcyBpcyBlbmNvZGU='</span>)) <span class="comment">// this is encode</span></span><br></pre></td></tr></table></figure>
+<h2 id="Base64-encode-amp-decode-in-NodeJS"><a href="#Base64-encode-amp-decode-in-NodeJS" class="headerlink" title="Base64 encode &amp; decode in NodeJS"></a>Base64 encode &amp; decode in NodeJS</h2><h3 id="encode-1"><a href="#encode-1" class="headerlink" title="encode:"></a>encode:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(Buffer.from(<span class="string">"Hello World"</span>).toString(<span class="string">'base64'</span>)) <span class="comment">// SGVsbG8gV29ybGQ=</span></span><br></pre></td></tr></table></figure>
+<h3 id="decode-1"><a href="#decode-1" class="headerlink" title="decode:"></a>decode:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(Buffer.from(<span class="string">"SGVsbG8gV29ybGQ="</span>, <span class="string">'base64'</span>).toString(<span class="string">'ascii'</span>)) <span class="comment">// Hello World</span></span><br></pre></td></tr></table></figure>
+<h2 id="Base64-encode-amp-decode-in-PHP"><a href="#Base64-encode-amp-decode-in-PHP" class="headerlink" title="Base64 encode &amp; decode in PHP"></a>Base64 encode &amp; decode in PHP</h2><h3 id="encode-2"><a href="#encode-2" class="headerlink" title="encode"></a>encode</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">base64_encode($str);</span><br></pre></td></tr></table></figure>
+<h3 id="decode-2"><a href="#decode-2" class="headerlink" title="decode"></a>decode</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">base64_decode($str);</span><br></pre></td></tr></table></figure>
+<h1 id="其他問題"><a href="#其他問題" class="headerlink" title="其他問題"></a>其他問題</h1><h2 id="Logout-OR-Invalidate-Token"><a href="#Logout-OR-Invalidate-Token" class="headerlink" title="Logout OR Invalidate Token"></a>Logout OR Invalidate Token</h2><p><a href="https://stackoverflow.com/questions/21978658/invalidating-json-web-tokens" target="_blank" rel="noopener">來源: Invalidating JSON Web Tokens</a><br>為了要解決 <strong>登出</strong> 或者 <strong>刪除token</strong> 問題, stackover flow 討論以下幾種可能的解法,  </p>
 <ol>
 <li><p>直接在 client 將此 token 從 local storage 或者 cookies 移除<br>這個方法對server端的安全沒有幫助, 攻擊者可以在第一次登入取得token時就先將token給儲存下來, server端還是會讓這組token有效, 對比session destroy, server端會讓session完全無效, 但這個方法對一般使用者來說確實是可以實作 <strong>登出功能</strong>   </p>
 </li>
@@ -457,7 +469,7 @@
 <li><p>讓token有效時間很短並且時常更換<br>簡單說可以設定一個只有一個有效期間很短的token, 並且在每次操作時都更換有效時間產生新的token, 這樣token就會保持最新狀態, 但這個方法的問題在於沒辦法保持很長久的用戶登入狀態 ( 要取決於盜期間格的時間 )  </p>
 </li>
 </ol>
-<h1 id="緊急狀況"><a href="#緊急狀況" class="headerlink" title="緊急狀況"></a>緊急狀況</h1><p>當緊急狀況發生時, 想要讓所有登入無效, 最快的辦法是直接改變jwt secret, 這樣所有token都會變成 <strong>Invalidate token</strong></p>
+<h2 id="緊急狀況"><a href="#緊急狀況" class="headerlink" title="緊急狀況"></a>緊急狀況</h2><p>當緊急狀況發生時, 想要讓所有登入無效, 最快的辦法是直接改變jwt secret, 這樣所有token都會變成 <strong>Invalidate token</strong></p>
 
           
         
