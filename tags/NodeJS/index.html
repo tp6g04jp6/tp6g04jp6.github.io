@@ -363,6 +363,32 @@
 
       <h2 class="post-title">
         
+          <a class="post-title-link" href="/2019/11/07/ubuntu-tool-setting/" itemprop="url">
+            
+              <span itemprop="name">ubuntu tool setting</span>
+            
+          </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-11-07T09:59:13+08:00" content="2019-11-07">
+          11-07
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
           <a class="post-title-link" href="/2019/06/17/node-request-promise/" itemprop="url">
             
               <span itemprop="name">node-request-promise</span>
@@ -538,7 +564,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">36</span>
+                      
+                    
+                    <span class="site-state-item-count">37</span>
                     <span class="site-state-item-name">標籤</span>
                   </a>
                 </div>
@@ -789,32 +817,6 @@
         ta.style.opacity = '0';
         ta.value = code;
         ta.textContent = code; //For FireFox
-        ta.contentEditable = true;
-        ta.readOnly = false;
-        document.body.appendChild(ta);
-        range.selectNode(ta);
-        sel.removeAllRanges();
-        sel.addRange(range);
-        ta.setSelectionRange(0, code.length);
-        var result = document.execCommand('copy');
-        
-        ta.blur(); //For iOS
-        $(this).blur();
-      })).on('mouseleave', function (e) {
-        var $b = $(this).find('.copy-btn');
-        setTimeout(function () {
-          $b.text('複製');
-        }, 300);
-      }).append(e);
-    })
-  </script>
-
-
-  
-
-</body>
-</html>
-e; //For FireFox
         ta.contentEditable = true;
         ta.readOnly = false;
         document.body.appendChild(ta);
