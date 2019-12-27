@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="KenPlay">
 <meta property="og:description" content="前言最近為了再 API 上 Request 和 Response 的 Body 上加上 PGP (Pretty Good Privacy) 加密, 採了不少雷, 所以稍微紀錄一下整個過程, Web-server 採用 Apache, 開發程式語言採用PHP, 作業系統是 ubuntu 16+ 在ubuntu上面安裝PGP安裝 gnupg2在 ubuntu 上 gnupg2 實作了 PGP, 所以在">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-12-27T05:56:39.286Z">
+<meta property="og:updated_time" content="2019-12-27T05:59:49.639Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PGP + ubuntu + PHP + apache2">
 <meta name="twitter:description" content="前言最近為了再 API 上 Request 和 Response 的 Body 上加上 PGP (Pretty Good Privacy) 加密, 採了不少雷, 所以稍微紀錄一下整個過程, Web-server 採用 Apache, 開發程式語言採用PHP, 作業系統是 ubuntu 16+ 在ubuntu上面安裝PGP安裝 gnupg2在 ubuntu 上 gnupg2 實作了 PGP, 所以在">
@@ -400,7 +400,7 @@
                 
                   <span class="post-meta-item-text">更新於</span>
                 
-                <time title="修改時間：2019-12-27 13:56:39" itemprop="dateModified" datetime="2019-12-27T13:56:39+08:00">2019-12-27</time>
+                <time title="修改時間：2019-12-27 13:59:49" itemprop="dateModified" datetime="2019-12-27T13:59:49+08:00">2019-12-27</time>
               
             
           </span>
@@ -465,20 +465,23 @@
 <p>資訊包含版本, 加密演算法選擇, 還有資料壓縮方式</p>
 <h2 id="產生密鑰-公鑰-私鑰"><a href="#產生密鑰-公鑰-私鑰" class="headerlink" title="產生密鑰 (公鑰+私鑰)"></a>產生密鑰 (公鑰+私鑰)</h2><p>輸入以下指令產生密鑰的程序就會開始(產用完整生成, 自訂選項比較多)<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gpg2 --full-gen-key</span></span><br></pre></td></tr></table></figure></p>
 <ol>
-<li><p>會問妳要何種加密方式, 通常選擇 default, 另外前幾行再跟妳說他產生了哪些config, 注意這些config還有權限</p>
+<li>會問妳要何種加密方式, 通常選擇 default, 另外前幾行再跟妳說他產生了哪些config, 注意這些config還有權限  </li>
+</ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">gpg (GnuPG) 2.1.11; Copyright (C) 2016 Free Software Foundation, Inc.</span><br><span class="line">This is free software: you are free to change and redistribute it.</span><br><span class="line">There is NO WARRANTY, to the extent permitted by law.</span><br><span class="line"></span><br><span class="line">gpg: directory '/home/blueplanet/.gnupg' created</span><br><span class="line">gpg: new configuration file '/home/blueplanet/.gnupg/dirmngr.conf' created</span><br><span class="line">gpg: new configuration file '/home/blueplanet/.gnupg/gpg.conf' created</span><br><span class="line">gpg: keybox '/home/blueplanet/.gnupg/pubring.kbx' created</span><br><span class="line">Please select what kind of key you want:</span><br><span class="line">   (1) RSA and RSA (default)</span><br><span class="line">   (2) DSA and Elgamal</span><br><span class="line">   (3) DSA (sign only)</span><br><span class="line">   (4) RSA (sign only)</span><br><span class="line">Your selection?</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>問妳的密鑰要多少bits, 通常是2048</p>
+<ol start="2">
+<li>問妳的密鑰要多少bits, 通常是2048  </li>
+</ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RSA keys may be between 1024 and 4096 bits long.</span><br><span class="line">What keysize do you want? (2048)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>選擇密鑰時限</p>
+<ol start="3">
+<li>選擇密鑰時限  </li>
+</ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Requested keysize is 2048 bits</span><br><span class="line">Please specify how long the key should be valid.</span><br><span class="line">         0 = key does not expire</span><br><span class="line">      &lt;n&gt;  = key expires in n days</span><br><span class="line">      &lt;n&gt;w = key expires in n weeks</span><br><span class="line">      &lt;n&gt;m = key expires in n months</span><br><span class="line">      &lt;n&gt;y = key expires in n years</span><br><span class="line">Key is valid for? (0) </span><br><span class="line">Key does not expire at all</span><br><span class="line">Is this correct? (y/N)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>接下來會創建key的ID, 第一個部分是名稱, 第二個部分是email, 第三個部分是comment, comment可以省略, case sensitive  </p>
+<ol start="4">
+<li>接下來會創建key的ID, 第一個部分是名稱, 第二個部分是email, 第三個部分是comment, comment可以省略, case sensitive  </li>
+</ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">GnuPG needs to construct a user ID to identify your key.</span><br><span class="line"></span><br><span class="line">Real name: KenPlay</span><br><span class="line">Email address: ken@xxxxxx.xxx.xx</span><br><span class="line">Comment: TEST</span><br><span class="line">You selected this USER-ID:</span><br><span class="line">    "KenPlay (TEST) &lt;ken@xxxxxx.xxx.xx&gt;"</span><br><span class="line"></span><br><span class="line">Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit?</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>接下來系統會請使用者幫密鑰在設一層密碼, 當每次調用key時, 都會詢問保護key的密碼, 如果要使用其他程式語言來控制 gpg2, 建議不要設密碼, 因為會產生對話, 很麻煩, 而且 PHP 的擴展套件 gnuPG 也對輸入密碼的支援度很低; 這個對話框會重複兩次  </p>
-</li>
+<ol start="5">
+<li>接下來系統會請使用者幫密鑰在設一層密碼, 當每次調用key時, 都會詢問保護key的密碼, 如果要使用其他程式語言來控制 gpg2, 建議不要設密碼, 因為會產生對話, 很麻煩, 而且 PHP 的擴展套件 gnuPG 也對輸入密碼的支援度很低; 這個對話框會重複兩次  </li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">lqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqk</span><br><span class="line">x Please enter the passphrase to                       x</span><br><span class="line">x protect your new key                                 x</span><br><span class="line">x                                                      x</span><br><span class="line">x Passphrase: ________________________________________ x</span><br><span class="line">x                                                      x</span><br><span class="line">x       &lt;OK&gt;                              &lt;Cancel&gt;     x</span><br><span class="line">mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">lqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqk</span><br><span class="line">x You have not entered a passphrase - this is in general a bad idea!                            x</span><br><span class="line">x Please confirm that you do not want to have any protection on your key.                       x</span><br><span class="line">x                                                                                               x</span><br><span class="line">x &lt;Yes, protection is not needed&gt;                                    &lt;Enter new passphrase&gt;     x</span><br><span class="line">mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj</span><br></pre></td></tr></table></figure>
@@ -491,7 +494,7 @@
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd if=/dev/sda of=/dev/zero</span><br></pre></td></tr></table></figure>
 <ol start="8">
-<li>當出現以下訊息代表已經成功產生密要對, 其中<strong>KenPlay (TEST) <a href="mailto:&#107;&#101;&#x6e;&#64;&#x78;&#x78;&#x78;&#x78;&#x78;&#x78;&#46;&#120;&#x78;&#x78;&#46;&#x78;&#x78;" target="_blank" rel="noopener">&#107;&#101;&#x6e;&#64;&#x78;&#x78;&#x78;&#x78;&#x78;&#x78;&#46;&#120;&#x78;&#x78;&#46;&#x78;&#x78;</a></strong>就是這對密鑰的ID  </li>
+<li>當出現以下訊息代表已經成功產生密要對, 其中<strong>KenPlay (TEST) <a href="mailto:&#107;&#x65;&#110;&#64;&#x78;&#120;&#120;&#x78;&#x78;&#x78;&#46;&#x78;&#120;&#x78;&#46;&#120;&#x78;" target="_blank" rel="noopener">&#107;&#x65;&#110;&#64;&#x78;&#120;&#120;&#x78;&#x78;&#x78;&#46;&#x78;&#120;&#x78;&#46;&#120;&#x78;</a></strong>就是這對密鑰的ID  </li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gpg: ~/.gnupg/trustdb.gpg: trustdb created</span><br><span class="line">gpg: key &lt;ID&gt; marked as ultimately trusted</span><br><span class="line">gpg: directory '~/.gnupg/openpgp-revocs.d' created</span><br><span class="line">gpg: revocation certificate stored as '~/.gnupg/openpgp-revocs.d/&lt;....&gt;.rev'</span><br><span class="line">public and secret key created and signed.</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">gpg: checking the trustdb</span><br><span class="line">gpg: marginals needed: 3  completes needed: 1  trust model: PGP</span><br><span class="line">gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u</span><br><span class="line">pub   rsa2048/&lt;ID&gt; 2019-12-27 [S]</span><br><span class="line">      Key fingerprint = &lt;......&gt;</span><br><span class="line">uid         [ultimate] KenPlay (TEST) &lt;ken@xxxxxx.xxx.xx&gt;</span><br><span class="line">sub   rsa2048/&lt;ID&gt; 2019-12-27 []</span><br></pre></td></tr></table></figure>
