@@ -339,6 +339,430 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/20/GitLab-Flow/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tp6g04jp6">
+      <meta itemprop="description" content="部落格,">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KenPlay">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/02/20/GitLab-Flow/" class="post-title-link" itemprop="url">GitLab Flow</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2020-02-20 20:40:01 / 修改時間：22:22:39" itemprop="dateCreated datePublished" datetime="2020-02-20T20:40:01+08:00">2020-02-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/gitlab/" itemprop="url" rel="index"><span itemprop="name">gitlab</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>這篇將介紹 <strong>GitLab flow</strong>, 主要翻譯兩篇文章以及 DEMO 流程怎麼走, 但對 CI/CD流程以及如何 code review 細節不會提到, 所以如果已經知道 gitlab flow 內容的請無視這幼幼班的murmur文 </p>
+<ol>
+<li><a href="#文章簡譯">文章簡譯 “The 11 Rules of GitLab Flow”</a>  </li>
+<li><a href="#介紹-GitLab-Flow">介紹 “GitLab Flow”</a></li>
+<li><a href="#Git基本指令介紹">Git 基本指令介紹 ( branch, checkout, merge, rebase, cherry-pick… )</a>  </li>
+<li><a href="#實際走一遍">實際走一遍</a></li>
+<li><a href="#討論合不合適">討論合不合適</a></li>
+</ol>
+<p>文章為 : </p>
+<ol>
+<li><a href="https://about.gitlab.com/blog/2016/07/27/the-11-rules-of-gitlab-flow/" target="_blank" rel="noopener">The 11 Rules of GitLab Flow</a>  </li>
+<li><a href="https://about.gitlab.com/blog/2014/09/29/gitlab-flow/" target="_blank" rel="noopener">GitLab Flow</a>  </li>
+</ol>
+<h1 id="介紹-GitLab-Flow"><a href="#介紹-GitLab-Flow" class="headerlink" title="介紹 GitLab Flow"></a>介紹 GitLab Flow</h1><h2 id="Git-Flow"><a href="#Git-Flow" class="headerlink" title="Git Flow"></a>Git Flow</h2><p>一張圖講解完 Git Flow<br><img src="git-flow.png" alt="Git-Flow"></p>
+<h1 id="文章簡譯"><a href="#文章簡譯" class="headerlink" title="文章簡譯"></a>文章簡譯</h1><h2 id="The-11-Rules-of-GitLab-Flow"><a href="#The-11-Rules-of-GitLab-Flow" class="headerlink" title="The 11 Rules of GitLab Flow"></a>The 11 Rules of GitLab Flow</h2><blockquote>
+<ol>
+<li>Use feature branches, no direct commits on master.</li>
+<li>Test all commits, not only ones on master.</li>
+<li>Run all the tests on all commits (if your tests run longer than 5 minutes have them run in parallel).</li>
+<li>Perform code reviews before merges into master, not afterwards.</li>
+<li>Deployments are automatic, based on branches or tags.</li>
+<li>Tags are set by the user, not by CI.</li>
+<li>Releases are based on tags.</li>
+<li>Pushed commits are never rebased.</li>
+<li>Everyone starts from master, and targets master.</li>
+<li>Fix bugs in master first and release branches second.</li>
+<li>Commit messages reflect intent.</li>
+</ol>
+</blockquote>
+<h3 id="1-Use-feature-branches-no-direct-commits-on-master"><a href="#1-Use-feature-branches-no-direct-commits-on-master" class="headerlink" title="1. Use feature branches, no direct commits on master."></a>1. Use feature branches, no direct commits on master.</h3><blockquote>
+<p>開發功能請使用功能分支, 不要直接在 master 上面開發完後 commit  </p>
+</blockquote>
+<p>不要在共有的 branch 上面 push code, 因為在上面 push code 會讓你很難追蹤你新增的功能, 修復的 BUG, 測試的結果, 還有可以 cherry-pick 的範圍; 但有些時候會打破這個規則, 比如要求功能的 crontributor squash 和 rebase 自己的commit 的時候, 不過大多數的時候請遵守這條規則</p>
+<p><em>自己murmur: 如果你不遵守這條規則, 至少你很難一眼在 git graph 上面看出個所以然來, 而且建立分支的成本其實很低, 你建立分支其實就只是個標籤, 你所有的 commit 行為不管是不是遵守 gitlab flow, 都會被記錄下來, 建立 branch 就只是多一個 branch(40 bytes) 的標籤罷了, 還有記得上游優先</em></p>
+<h3 id="2-Test-all-commits-not-only-ones-on-master"><a href="#2-Test-all-commits-not-only-ones-on-master" class="headerlink" title="2. Test all commits, not only ones on master."></a>2. Test all commits, not only ones on master.</h3><blockquote>
+<p>所有的 commits 都要執行測試, 不要只在 master 上面測試</p>
+</blockquote>
+<h3 id="3-Run-all-the-tests-on-all-commits-if-your-tests-run-longer-than-5-minutes-have-them-run-in-parallel"><a href="#3-Run-all-the-tests-on-all-commits-if-your-tests-run-longer-than-5-minutes-have-them-run-in-parallel" class="headerlink" title="3. Run all the tests on all commits (if your tests run longer than 5 minutes have them run in parallel)."></a>3. Run all the tests on all commits (if your tests run longer than 5 minutes have them run in parallel).</h3><blockquote>
+<p>在所有的 commits 上執行所有的測試。如果測試需要執行超過五分鐘，那麼可以試著平行化執行  </p>
+</blockquote>
+<p>有些時候，可能會覺得執行所有測試會浪費資源又費時，但其實如同上一個原則，越早發現問題，越省成本，因此如果發現執行測試太耗資源或費時，可能就需要去評估測試資源的貧頸點在哪裡，試著去改善它。</p>
+<p><em>自己murmur: 好吧, 其實我還沒有切身的感受, 因為我根本不會去跑test, 哈哈</em></p>
+<h3 id="4-Perform-code-reviews-before-merges-into-master-not-afterwards"><a href="#4-Perform-code-reviews-before-merges-into-master-not-afterwards" class="headerlink" title="4. Perform code reviews before merges into master, not afterwards."></a>4. Perform code reviews before merges into master, not afterwards.</h3><blockquote>
+<p>在合併到主分支前作 code review，而不是在合併之後。</p>
+</blockquote>
+<p>不要在周末時才作 code review, 而是在每個短期分支合併回 master 之前就作 code review</p>
+<p><em>自己murmur: 好吧, 這也是個課題, 因為我們也不作 code review, code review 和 test 的成本我們現在不知道出不出得起, 或者要怎麼取捨, 有勞 devOps 團隊來討論了</em></p>
+<h3 id="5-Deployments-are-automatic-based-on-branches-or-tags"><a href="#5-Deployments-are-automatic-based-on-branches-or-tags" class="headerlink" title="5. Deployments are automatic, based on branches or tags."></a>5. Deployments are automatic, based on branches or tags.</h3><blockquote>
+<p>基於分支或者標籤(tag)作部屬(deploy), 讓部屬自動化  </p>
+</blockquote>
+<p><em>自己murmur: 有請 devOps 組長來幫忙講解 CI/CD了</em>  </p>
+<h3 id="6-Tags-are-set-by-the-user-not-by-CI"><a href="#6-Tags-are-set-by-the-user-not-by-CI" class="headerlink" title="6. Tags are set by the user, not by CI."></a>6. Tags are set by the user, not by CI.</h3><blockquote>
+<p>由使用者建立 tag，而不是讓 CI 工具建立 tag。</p>
+</blockquote>
+<p><em>自己murmur: @.@ 同上</em></p>
+<h3 id="7-Releases-are-based-on-tags"><a href="#7-Releases-are-based-on-tags" class="headerlink" title="7. Releases are based on tags."></a>7. Releases are based on tags.</h3><blockquote>
+<p> 使用 tag 作為版本發佈的依據。</p>
+</blockquote>
+<h3 id="8-Pushed-commits-are-never-rebased"><a href="#8-Pushed-commits-are-never-rebased" class="headerlink" title="8. Pushed commits are never rebased."></a>8. Pushed commits are never rebased.</h3><blockquote>
+<p>已經 push 的 commits 不要在進行 rebase</p>
+</blockquote>
+<p>如果你已經把你自己 code push 到遠端儲存庫了, 盡量不要在進行 rebase, 因為你的同伴可能會爆炸, 除非這條 feature branch 只有自己在開發  </p>
+<p><em>自己murmur: 好吧, 其實我們自己開發的功能通常只會有一個人在一條feature branch 上面</em></p>
+<h3 id="9-Everyone-starts-from-master-and-targets-master"><a href="#9-Everyone-starts-from-master-and-targets-master" class="headerlink" title="9. Everyone starts from master, and targets master."></a>9. Everyone starts from master, and targets master.</h3><blockquote>
+<p>所有人都由主要分支 master 作為開始，且每次都以 master 為基礎。</p>
+</blockquote>
+<p><strong>UPSTREAM FIRST</strong>, 上游優先</p>
+<h3 id="10-Fix-bugs-in-master-first-and-release-branches-second"><a href="#10-Fix-bugs-in-master-first-and-release-branches-second" class="headerlink" title="10. Fix bugs in master first and release branches second."></a>10. Fix bugs in master first and release branches second.</h3><blockquote>
+<p>先在主要分支進行 bug 的修正，之後才發佈到分支</p>
+</blockquote>
+<p>基於「upstream first」原則，就算在釋出版本中發現問題，也先在主要分支上建立 bug 修正的分支，而後一樣走 MR 流程，合併回主要分支之後，再透過主要分支發佈到需要修正的分支。</p>
+<p><em>自己murmur: 這條規則可能對專案開發或沒有副產品的產品開發比較適用, 因為所有流程都是 master 開始, 若是 釋出的版本有 BUG, master 一定有BUG, 所以從 master 開啟 fix-bug branch 在merge 回 mater 後 cherry-pick 到 釋出的版本分支和其他的分支, 也因為一切都是由 master 所以不會有 git flow 那種複雜的圖跑出來</em></p>
+<h3 id="11-Commit-messages-reflect-intent"><a href="#11-Commit-messages-reflect-intent" class="headerlink" title="11. Commit messages reflect intent."></a>11. Commit messages reflect intent.</h3><blockquote>
+<p>在 Commit message 中充分的表達修改的目的及意圖 </p>
+</blockquote>
+<p>gitlab 官方推薦規範 : <a href="https://docs.gitlab.com/ee/topics/gitlab_flow.html#how-to-write-a-good-commit-message" target="_blank" rel="noopener">https://docs.gitlab.com/ee/topics/gitlab_flow.html#how-to-write-a-good-commit-message</a></p>
+<p><em>自己murmur: 總而言之就是寫得越清楚越好</em></p>
+<h3 id="自己結尾"><a href="#自己結尾" class="headerlink" title="自己結尾"></a>自己結尾</h3><p>其實這11條就只是規則, 規範, 沒有遵守也不會怎樣, 但有共通流程, 可以配合測試(test)和自動化整合部屬(CI/CD), 這樣打開 git 專案翻開 code 看到 git graph 時才不會一頭霧水</p>
+<h1 id="Git基本指令介紹"><a href="#Git基本指令介紹" class="headerlink" title="Git基本指令介紹"></a>Git基本指令介紹</h1><h1 id="實際走一遍"><a href="#實際走一遍" class="headerlink" title="實際走一遍"></a>實際走一遍</h1>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/09/Git-flow-Github-flow-Gitlab-flow/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tp6g04jp6">
+      <meta itemprop="description" content="部落格,">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KenPlay">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/01/09/Git-flow-Github-flow-Gitlab-flow/" class="post-title-link" itemprop="url">未命名</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2020-01-09 21:32:05" itemprop="dateCreated datePublished" datetime="2020-01-09T21:32:05+08:00">2020-01-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2020-01-10 17:00:26" itemprop="dateModified" datetime="2020-01-10T17:00:26+08:00">2020-01-10</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<p>title: Git flow &amp; Github flow &amp; Gitlab flow<br>date: 2020-01-09 21:32:05<br>category:</p>
+<ul>
+<li>筆記</li>
+<li>部屬<br>tags:</li>
+<li>git</li>
+<li>gitlab</li>
+<li>github</li>
+<li>git flow</li>
+<li>github flow</li>
+<li>gitlab flow</li>
+<li>PR</li>
+<li>pull request</li>
+</ul>
+<hr>
+<h1 id="git-flow"><a href="#git-flow" class="headerlink" title="git flow"></a>git flow</h1><h2 id="git-flow-1"><a href="#git-flow-1" class="headerlink" title="git flow"></a>git flow</h2><p>git 分支有幾種 branch, 長期分支: master branch, develop branch, 短期分支: feature branch, hotfix branch, release branch, 長期分支永遠不會被刪除, 短期分支都是被開發完就會 merge 到 develop 和 master </p>
+<h3 id="1-master-branch"><a href="#1-master-branch" class="headerlink" title="1. master branch"></a>1. master branch</h3><p>matser branch  </p>
+<h2 id="git-flow-優缺點翻譯"><a href="#git-flow-優缺點翻譯" class="headerlink" title="git flow 優缺點翻譯"></a>git flow 優缺點翻譯</h2><ul>
+<li>翻譯來源 - 出自Gitlab <a href="https://about.gitlab.com/blog/2014/09/29/gitlab-flow/" target="_blank" rel="noopener">(https://about.gitlab.com/blog/2014/09/29/gitlab-flow/)</a><br>Git flow 是 git 最早以前建議的工作流程, Git flow 主張專案中會有兩個長期分支: </li>
+<li><strong>主分支 Master(master brnach)</strong>  </li>
+<li><strong>開發分支 Develop(develop branch)</strong><br>還有其他短期分支: </li>
+<li><strong>功能分支 feature branch</strong>  </li>
+<li><strong>修復分支 hotfix branch</strong> </li>
+<li><strong>預發分支 release branch</strong><br>Git flow 是一套定義明確的標準工作流程, 但是因為其相對複雜的關係帶來兩個問題:</li>
+</ul>
+<ol>
+<li>開發人員必須轉換到 develop branch , master branch 上的程式碼必須保持為可以發布產品的狀態, 大部分的 branch 都由 master branch 分出來並且 merge 回 master branch, 由於大多數的工具都會選擇 master branch 為 default branch, 對於要一開始就切換到 develop 覺得很麻煩 (<em>我: ????</em>) </li>
+<li>第二個問題是 hotfix 和 release branch 太複雜, 而且需要頻繁切換 branch, 在現在大多數專案都持續交付的情況下, 通常有 Bug 就在 develope 修復後 merge 到 master 中並且發布下個版本, 如果在 git flow 下, 開發人員常犯一個錯誤, 程式的修正僅 merge 到 master 中, 而忘記 merge 到 develop, 這些錯誤的根本原因是 git flow 太複雜了, 而且新版本的發布不代表要修復 BUG  </li>
+</ol>
+<h2 id="git-flow-2"><a href="#git-flow-2" class="headerlink" title="git flow"></a>git flow</h2><h1 id="常用git指令"><a href="#常用git指令" class="headerlink" title="常用git指令"></a>常用git指令</h1><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git init <span class="comment"># 初始化資料夾</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git add <span class="comment"># 新增檔案到git版本管控</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git satus <span class="comment"># 查詢目前工作資料夾狀況</span></span><br><span class="line"></span><br><span class="line">On branch master</span><br><span class="line">Untracked files:</span><br><span class="line">  (use <span class="string">"git add &lt;file&gt;..."</span> to include <span class="keyword">in</span> what will be committed)</span><br><span class="line"></span><br><span class="line">        .vscode/</span><br><span class="line">        admin/views/</span><br><span class="line">        config.json</span><br><span class="line">        config2.json</span><br><span class="line">        countCommentsByDate.csv</span><br><span class="line">        debug.txt</span><br><span class="line">        documents/demo_console.js</span><br><span class="line">        documents/demo_crawler_base.js</span><br><span class="line">        documents/demo_crawler_base.json</span><br><span class="line">        documents/demo_crawler_es5.js</span><br><span class="line">        documents/demo_crawler_es5.json</span><br><span class="line">        documents/demo_crawler_es6.js</span><br><span class="line">        documents/demo_crawler_es6.json</span><br><span class="line">        ...</span><br><span class="line">        ...</span><br><span class="line">nothing added to commit but untracked files present (use <span class="string">"git add"</span> to track)</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git status -s <span class="comment"># 查詢目前工作資料夾狀況 (精簡版)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git commit <span class="comment"># 提交變更紀錄</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git reset <span class="comment"># 取消所有git add 的資料</span></span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/26/PGP-ubuntu-PHP-apache2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -497,7 +921,7 @@
 </ol>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">dd if=/dev/sda of=/dev/zero</span><br></pre></td></tr></table></figure>
 <ol start="8">
-<li>當出現以下訊息代表已經成功產生密要對, 其中<strong>KenPlay (TEST) <a href="mailto:&#107;&#101;&#x6e;&#x40;&#x78;&#x78;&#x78;&#x78;&#120;&#x78;&#46;&#x78;&#120;&#x78;&#46;&#120;&#120;" target="_blank" rel="noopener">&#107;&#101;&#x6e;&#x40;&#x78;&#x78;&#x78;&#x78;&#120;&#x78;&#46;&#x78;&#120;&#x78;&#46;&#120;&#120;</a></strong>就是這對密鑰的ID  </li>
+<li>當出現以下訊息代表已經成功產生密要對, 其中<strong>KenPlay (TEST) <a href="mailto:&#x6b;&#101;&#110;&#64;&#x78;&#x78;&#x78;&#120;&#x78;&#x78;&#x2e;&#120;&#120;&#x78;&#x2e;&#x78;&#120;" target="_blank" rel="noopener">&#x6b;&#101;&#110;&#64;&#x78;&#x78;&#x78;&#120;&#x78;&#x78;&#x2e;&#120;&#120;&#x78;&#x2e;&#x78;&#120;</a></strong>就是這對密鑰的ID  </li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gpg: ~/.gnupg/trustdb.gpg: trustdb created</span><br><span class="line">gpg: key &lt;ID&gt; marked as ultimately trusted</span><br><span class="line">gpg: directory '~/.gnupg/openpgp-revocs.d' created</span><br><span class="line">gpg: revocation certificate stored as '~/.gnupg/openpgp-revocs.d/&lt;....&gt;.rev'</span><br><span class="line">public and secret key created and signed.</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gpg: checking the trustdb</span><br><span class="line">gpg: marginals needed: 3  completes needed: 1  trust model: PGP</span><br><span class="line">gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u</span><br><span class="line">pub   rsa2048/&lt;ID&gt; 2019-12-27 [S]</span><br><span class="line">      Key fingerprint = &lt;......&gt;</span><br><span class="line">uid         [ultimate] KenPlay (TEST) &lt;ken@xxxxxx.xxx.xx&gt;</span><br><span class="line">sub   rsa2048/&lt;ID&gt; 2019-12-27 []</span><br></pre></td></tr></table></figure>
@@ -1790,377 +2214,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/21/instagram_graph_api/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="tp6g04jp6">
-      <meta itemprop="description" content="部落格,">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KenPlay">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/10/21/instagram_graph_api/" class="post-title-link" itemprop="url">Instagram Graph API</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-
-              
-                
-              
-
-              <time title="創建時間：2019-10-21 00:02:27" itemprop="dateCreated datePublished" datetime="2019-10-21T00:02:27+08:00">2019-10-21</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新於</span>
-                
-                <time title="修改時間：2019-11-07 03:11:01" itemprop="dateModified" datetime="2019-11-07T03:11:01+08:00">2019-11-07</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/筆記/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Instagram-Graph-API"><a href="#Instagram-Graph-API" class="headerlink" title="Instagram Graph API"></a>Instagram Graph API</h3><h4 id="帳戶種類"><a href="#帳戶種類" class="headerlink" title="帳戶種類"></a>帳戶種類</h4><ol>
-<li>Instagram Business Accounts  </li>
-<li>Instagram Creator Accounts  </li>
-</ol>
-<h4 id="帳戶功能"><a href="#帳戶功能" class="headerlink" title="帳戶功能"></a>帳戶功能</h4><ol>
-<li>獲取媒體 (get media)  </li>
-<li>發布媒體 (publish media)</li>
-<li>管理回覆留言評論  </li>
-<li>識別被 @mention 到的用戶</li>
-<li>找出帶有 #(hashtag) 標記到的媒體  </li>
-<li>get basic metadata about other Instagram Businesses and Creators (metada包含哪些?)  </li>
-<li>get metrics about other Instagram Businesses and Creators (metrics包含哪些?)  </li>
-</ol>
-<h4 id="通常功能"><a href="#通常功能" class="headerlink" title="通常功能"></a>通常功能</h4><ol>
-<li>獲取和管理已發布的照片，視頻和故事  </li>
-<li>獲取有關其他Instagram Business用戶和創作者的基本數據  </li>
-<li>審核評論及其回复  </li>
-<li>測量媒體和個人資料的互動  </li>
-<li>發現雜亂無章的媒體  </li>
-<li>發現@提及  </li>
-<li>發布照片和影片（目前處於封閉Beta版）</li>
-</ol>
-<h4 id="建議"><a href="#建議" class="headerlink" title="建議"></a>建議</h4><p>如果只是要取得基本個人資料或照片等可以只使用instagram Basic Display API  </p>
-<h4 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h4><ol>
-<li>該API無法訪問Intagram消費者帳戶（即非企業或非創作者Instagram帳戶）。 如果您要為消費者用戶構建應用程序，請改用Instagram基本顯示API。</li>
-<li>內容發佈僅適用於Instagram業務用戶。</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/17/node-request-promise/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="tp6g04jp6">
-      <meta itemprop="description" content="部落格,">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KenPlay">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/06/17/node-request-promise/" class="post-title-link" itemprop="url">node-request-promise</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-
-              
-                
-              
-
-              <time title="創建時間：2019-06-17 14:33:41" itemprop="dateCreated datePublished" datetime="2019-06-17T14:33:41+08:00">2019-06-17</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新於</span>
-                
-                <time title="修改時間：2019-11-07 02:20:03" itemprop="dateModified" datetime="2019-11-07T02:20:03+08:00">2019-11-07</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/筆記/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="request-promise-nodeJS-module"><a href="#request-promise-nodeJS-module" class="headerlink" title="request-promise (nodeJS module)"></a>request-promise (nodeJS module)</h1><h2 id="response"><a href="#response" class="headerlink" title="response"></a>response</h2><h4 id="keys"><a href="#keys" class="headerlink" title="keys"></a>keys</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">[ <span class="string">'_readableState'</span>,</span><br><span class="line">  <span class="string">'readable'</span>,</span><br><span class="line">  <span class="string">'_events'</span>,</span><br><span class="line">  <span class="string">'_eventsCount'</span>,</span><br><span class="line">  <span class="string">'_maxListeners'</span>,</span><br><span class="line">  <span class="string">'socket'</span>,</span><br><span class="line">  <span class="string">'connection'</span>,</span><br><span class="line">  <span class="string">'httpVersionMajor'</span>,   <span class="comment">// 1</span></span><br><span class="line">  <span class="string">'httpVersionMinor'</span>,   <span class="comment">// 1</span></span><br><span class="line">  <span class="string">'httpVersion'</span>,        <span class="comment">// 1.1</span></span><br><span class="line">  <span class="string">'complete'</span>,</span><br><span class="line">  <span class="string">'headers'</span>,</span><br><span class="line">  <span class="string">'rawHeaders'</span>,</span><br><span class="line">  <span class="string">'trailers'</span>,</span><br><span class="line">  <span class="string">'rawTrailers'</span>,</span><br><span class="line">  <span class="string">'aborted'</span>,</span><br><span class="line">  <span class="string">'upgrade'</span>,</span><br><span class="line">  <span class="string">'url'</span>,</span><br><span class="line">  <span class="string">'method'</span>,</span><br><span class="line">  <span class="string">'statusCode'</span>,</span><br><span class="line">  <span class="string">'statusMessage'</span>,</span><br><span class="line">  <span class="string">'client'</span>,</span><br><span class="line">  <span class="string">'_consuming'</span>,</span><br><span class="line">  <span class="string">'_dumped'</span>,</span><br><span class="line">  <span class="string">'req'</span>,</span><br><span class="line">  <span class="string">'request'</span>,</span><br><span class="line">  <span class="string">'toJSON'</span>,</span><br><span class="line">  <span class="string">'caseless'</span>,</span><br><span class="line">  <span class="string">'body'</span> ]</span><br></pre></td></tr></table></figure>
-<p>#### </p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2208,7 +2261,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">文章</span>
                   </a>
                 </div>
@@ -2237,7 +2290,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">分類</span>
                   </a>
                 </div>
@@ -2336,7 +2391,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">43</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">47</span>
                     <span class="site-state-item-name">標籤</span>
                   </a>
                 </div>

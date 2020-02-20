@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-TW">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前言這篇將介紹 GitLab flow, 主要翻譯兩篇文章以及 DEMO 流程怎麼走, 但對 CI/CD流程以及如何 code review 細節不會提到, 所以如果已經知道 gitlab flow 內容的請無視這幼幼班的murmur文   文章簡譯 “The 11 Rules of GitLab Flow”   介紹 “GitLab Flow” Git 基本指令介紹 ( branch, chec">
+<meta name="keywords" content="gitlab,gitlab flow,git flow,github flow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitLab Flow">
+<meta property="og:url" content="http://yoursite.com/2020/02/20/GitLab-Flow/index.html">
+<meta property="og:site_name" content="KenPlay">
+<meta property="og:description" content="前言這篇將介紹 GitLab flow, 主要翻譯兩篇文章以及 DEMO 流程怎麼走, 但對 CI/CD流程以及如何 code review 細節不會提到, 所以如果已經知道 gitlab flow 內容的請無視這幼幼班的murmur文   文章簡譯 “The 11 Rules of GitLab Flow”   介紹 “GitLab Flow” Git 基本指令介紹 ( branch, chec">
+<meta property="og:locale" content="zh-TW">
+<meta property="og:image" content="http://yoursite.com/2020/02/20/GitLab-Flow/git-flow.png">
+<meta property="og:updated_time" content="2020-02-20T14:22:39.361Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GitLab Flow">
+<meta name="twitter:description" content="前言這篇將介紹 GitLab flow, 主要翻譯兩篇文章以及 DEMO 流程怎麼走, 但對 CI/CD流程以及如何 code review 細節不會提到, 所以如果已經知道 gitlab flow 內容的請無視這幼幼班的murmur文   文章簡譯 “The 11 Rules of GitLab Flow”   介紹 “GitLab Flow” Git 基本指令介紹 ( branch, chec">
+<meta name="twitter:image" content="http://yoursite.com/2020/02/20/GitLab-Flow/git-flow.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/02/20/GitLab-Flow/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>GitLab Flow | KenPlay</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-TW">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">KenPlay</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切換導航欄">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首頁</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>關於</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>標籤</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分類</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>歸檔</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/20/GitLab-Flow/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tp6g04jp6">
+      <meta itemprop="description" content="部落格,">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KenPlay">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">GitLab Flow
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
+              
+                
+              
+
+              <time title="創建時間：2020-02-20 20:40:01 / 修改時間：22:22:39" itemprop="dateCreated datePublished" datetime="2020-02-20T20:40:01+08:00">2020-02-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/gitlab/" itemprop="url" rel="index"><span itemprop="name">gitlab</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>這篇將介紹 <strong>GitLab flow</strong>, 主要翻譯兩篇文章以及 DEMO 流程怎麼走, 但對 CI/CD流程以及如何 code review 細節不會提到, 所以如果已經知道 gitlab flow 內容的請無視這幼幼班的murmur文 </p>
+<ol>
+<li><a href="#文章簡譯">文章簡譯 “The 11 Rules of GitLab Flow”</a>  </li>
+<li><a href="#介紹-GitLab-Flow">介紹 “GitLab Flow”</a></li>
+<li><a href="#Git基本指令介紹">Git 基本指令介紹 ( branch, checkout, merge, rebase, cherry-pick… )</a>  </li>
+<li><a href="#實際走一遍">實際走一遍</a></li>
+<li><a href="#討論合不合適">討論合不合適</a></li>
+</ol>
+<p>文章為 : </p>
+<ol>
+<li><a href="https://about.gitlab.com/blog/2016/07/27/the-11-rules-of-gitlab-flow/" target="_blank" rel="noopener">The 11 Rules of GitLab Flow</a>  </li>
+<li><a href="https://about.gitlab.com/blog/2014/09/29/gitlab-flow/" target="_blank" rel="noopener">GitLab Flow</a>  </li>
+</ol>
+<h1 id="介紹-GitLab-Flow"><a href="#介紹-GitLab-Flow" class="headerlink" title="介紹 GitLab Flow"></a>介紹 GitLab Flow</h1><h2 id="Git-Flow"><a href="#Git-Flow" class="headerlink" title="Git Flow"></a>Git Flow</h2><p>一張圖講解完 Git Flow<br><img src="git-flow.png" alt="Git-Flow"></p>
+<h1 id="文章簡譯"><a href="#文章簡譯" class="headerlink" title="文章簡譯"></a>文章簡譯</h1><h2 id="The-11-Rules-of-GitLab-Flow"><a href="#The-11-Rules-of-GitLab-Flow" class="headerlink" title="The 11 Rules of GitLab Flow"></a>The 11 Rules of GitLab Flow</h2><blockquote>
+<ol>
+<li>Use feature branches, no direct commits on master.</li>
+<li>Test all commits, not only ones on master.</li>
+<li>Run all the tests on all commits (if your tests run longer than 5 minutes have them run in parallel).</li>
+<li>Perform code reviews before merges into master, not afterwards.</li>
+<li>Deployments are automatic, based on branches or tags.</li>
+<li>Tags are set by the user, not by CI.</li>
+<li>Releases are based on tags.</li>
+<li>Pushed commits are never rebased.</li>
+<li>Everyone starts from master, and targets master.</li>
+<li>Fix bugs in master first and release branches second.</li>
+<li>Commit messages reflect intent.</li>
+</ol>
+</blockquote>
+<h3 id="1-Use-feature-branches-no-direct-commits-on-master"><a href="#1-Use-feature-branches-no-direct-commits-on-master" class="headerlink" title="1. Use feature branches, no direct commits on master."></a>1. Use feature branches, no direct commits on master.</h3><blockquote>
+<p>開發功能請使用功能分支, 不要直接在 master 上面開發完後 commit  </p>
+</blockquote>
+<p>不要在共有的 branch 上面 push code, 因為在上面 push code 會讓你很難追蹤你新增的功能, 修復的 BUG, 測試的結果, 還有可以 cherry-pick 的範圍; 但有些時候會打破這個規則, 比如要求功能的 crontributor squash 和 rebase 自己的commit 的時候, 不過大多數的時候請遵守這條規則</p>
+<p><em>自己murmur: 如果你不遵守這條規則, 至少你很難一眼在 git graph 上面看出個所以然來, 而且建立分支的成本其實很低, 你建立分支其實就只是個標籤, 你所有的 commit 行為不管是不是遵守 gitlab flow, 都會被記錄下來, 建立 branch 就只是多一個 branch(40 bytes) 的標籤罷了, 還有記得上游優先</em></p>
+<h3 id="2-Test-all-commits-not-only-ones-on-master"><a href="#2-Test-all-commits-not-only-ones-on-master" class="headerlink" title="2. Test all commits, not only ones on master."></a>2. Test all commits, not only ones on master.</h3><blockquote>
+<p>所有的 commits 都要執行測試, 不要只在 master 上面測試</p>
+</blockquote>
+<h3 id="3-Run-all-the-tests-on-all-commits-if-your-tests-run-longer-than-5-minutes-have-them-run-in-parallel"><a href="#3-Run-all-the-tests-on-all-commits-if-your-tests-run-longer-than-5-minutes-have-them-run-in-parallel" class="headerlink" title="3. Run all the tests on all commits (if your tests run longer than 5 minutes have them run in parallel)."></a>3. Run all the tests on all commits (if your tests run longer than 5 minutes have them run in parallel).</h3><blockquote>
+<p>在所有的 commits 上執行所有的測試。如果測試需要執行超過五分鐘，那麼可以試著平行化執行  </p>
+</blockquote>
+<p>有些時候，可能會覺得執行所有測試會浪費資源又費時，但其實如同上一個原則，越早發現問題，越省成本，因此如果發現執行測試太耗資源或費時，可能就需要去評估測試資源的貧頸點在哪裡，試著去改善它。</p>
+<p><em>自己murmur: 好吧, 其實我還沒有切身的感受, 因為我根本不會去跑test, 哈哈</em></p>
+<h3 id="4-Perform-code-reviews-before-merges-into-master-not-afterwards"><a href="#4-Perform-code-reviews-before-merges-into-master-not-afterwards" class="headerlink" title="4. Perform code reviews before merges into master, not afterwards."></a>4. Perform code reviews before merges into master, not afterwards.</h3><blockquote>
+<p>在合併到主分支前作 code review，而不是在合併之後。</p>
+</blockquote>
+<p>不要在周末時才作 code review, 而是在每個短期分支合併回 master 之前就作 code review</p>
+<p><em>自己murmur: 好吧, 這也是個課題, 因為我們也不作 code review, code review 和 test 的成本我們現在不知道出不出得起, 或者要怎麼取捨, 有勞 devOps 團隊來討論了</em></p>
+<h3 id="5-Deployments-are-automatic-based-on-branches-or-tags"><a href="#5-Deployments-are-automatic-based-on-branches-or-tags" class="headerlink" title="5. Deployments are automatic, based on branches or tags."></a>5. Deployments are automatic, based on branches or tags.</h3><blockquote>
+<p>基於分支或者標籤(tag)作部屬(deploy), 讓部屬自動化  </p>
+</blockquote>
+<p><em>自己murmur: 有請 devOps 組長來幫忙講解 CI/CD了</em>  </p>
+<h3 id="6-Tags-are-set-by-the-user-not-by-CI"><a href="#6-Tags-are-set-by-the-user-not-by-CI" class="headerlink" title="6. Tags are set by the user, not by CI."></a>6. Tags are set by the user, not by CI.</h3><blockquote>
+<p>由使用者建立 tag，而不是讓 CI 工具建立 tag。</p>
+</blockquote>
+<p><em>自己murmur: @.@ 同上</em></p>
+<h3 id="7-Releases-are-based-on-tags"><a href="#7-Releases-are-based-on-tags" class="headerlink" title="7. Releases are based on tags."></a>7. Releases are based on tags.</h3><blockquote>
+<p> 使用 tag 作為版本發佈的依據。</p>
+</blockquote>
+<h3 id="8-Pushed-commits-are-never-rebased"><a href="#8-Pushed-commits-are-never-rebased" class="headerlink" title="8. Pushed commits are never rebased."></a>8. Pushed commits are never rebased.</h3><blockquote>
+<p>已經 push 的 commits 不要在進行 rebase</p>
+</blockquote>
+<p>如果你已經把你自己 code push 到遠端儲存庫了, 盡量不要在進行 rebase, 因為你的同伴可能會爆炸, 除非這條 feature branch 只有自己在開發  </p>
+<p><em>自己murmur: 好吧, 其實我們自己開發的功能通常只會有一個人在一條feature branch 上面</em></p>
+<h3 id="9-Everyone-starts-from-master-and-targets-master"><a href="#9-Everyone-starts-from-master-and-targets-master" class="headerlink" title="9. Everyone starts from master, and targets master."></a>9. Everyone starts from master, and targets master.</h3><blockquote>
+<p>所有人都由主要分支 master 作為開始，且每次都以 master 為基礎。</p>
+</blockquote>
+<p><strong>UPSTREAM FIRST</strong>, 上游優先</p>
+<h3 id="10-Fix-bugs-in-master-first-and-release-branches-second"><a href="#10-Fix-bugs-in-master-first-and-release-branches-second" class="headerlink" title="10. Fix bugs in master first and release branches second."></a>10. Fix bugs in master first and release branches second.</h3><blockquote>
+<p>先在主要分支進行 bug 的修正，之後才發佈到分支</p>
+</blockquote>
+<p>基於「upstream first」原則，就算在釋出版本中發現問題，也先在主要分支上建立 bug 修正的分支，而後一樣走 MR 流程，合併回主要分支之後，再透過主要分支發佈到需要修正的分支。</p>
+<p><em>自己murmur: 這條規則可能對專案開發或沒有副產品的產品開發比較適用, 因為所有流程都是 master 開始, 若是 釋出的版本有 BUG, master 一定有BUG, 所以從 master 開啟 fix-bug branch 在merge 回 mater 後 cherry-pick 到 釋出的版本分支和其他的分支, 也因為一切都是由 master 所以不會有 git flow 那種複雜的圖跑出來</em></p>
+<h3 id="11-Commit-messages-reflect-intent"><a href="#11-Commit-messages-reflect-intent" class="headerlink" title="11. Commit messages reflect intent."></a>11. Commit messages reflect intent.</h3><blockquote>
+<p>在 Commit message 中充分的表達修改的目的及意圖 </p>
+</blockquote>
+<p>gitlab 官方推薦規範 : <a href="https://docs.gitlab.com/ee/topics/gitlab_flow.html#how-to-write-a-good-commit-message" target="_blank" rel="noopener">https://docs.gitlab.com/ee/topics/gitlab_flow.html#how-to-write-a-good-commit-message</a></p>
+<p><em>自己murmur: 總而言之就是寫得越清楚越好</em></p>
+<h3 id="自己結尾"><a href="#自己結尾" class="headerlink" title="自己結尾"></a>自己結尾</h3><p>其實這11條就只是規則, 規範, 沒有遵守也不會怎樣, 但有共通流程, 可以配合測試(test)和自動化整合部屬(CI/CD), 這樣打開 git 專案翻開 code 看到 git graph 時才不會一頭霧水</p>
+<h1 id="Git基本指令介紹"><a href="#Git基本指令介紹" class="headerlink" title="Git基本指令介紹"></a>Git基本指令介紹</h1><h1 id="實際走一遍"><a href="#實際走一遍" class="headerlink" title="實際走一遍"></a>實際走一遍</h1>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/gitlab/" rel="tag"># gitlab</a>
+          
+            <a href="/tags/gitlab-flow/" rel="tag"># gitlab flow</a>
+          
+            <a href="/tags/git-flow/" rel="tag"># git flow</a>
+          
+            <a href="/tags/github-flow/" rel="tag"># github flow</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/09/Git-flow-Github-flow-Gitlab-flow/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概要
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">tp6g04jp6</p>
+              <p class="site-description motion-element" itemprop="description">部落格,</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">文章</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分類</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">47</span>
+                    <span class="site-state-item-name">標籤</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#介紹-GitLab-Flow"><span class="nav-number">2.</span> <span class="nav-text">介紹 GitLab Flow</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-Flow"><span class="nav-number">2.1.</span> <span class="nav-text">Git Flow</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文章簡譯"><span class="nav-number">3.</span> <span class="nav-text">文章簡譯</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#The-11-Rules-of-GitLab-Flow"><span class="nav-number">3.1.</span> <span class="nav-text">The 11 Rules of GitLab Flow</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Use-feature-branches-no-direct-commits-on-master"><span class="nav-number">3.1.1.</span> <span class="nav-text">1. Use feature branches, no direct commits on master.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Test-all-commits-not-only-ones-on-master"><span class="nav-number">3.1.2.</span> <span class="nav-text">2. Test all commits, not only ones on master.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Run-all-the-tests-on-all-commits-if-your-tests-run-longer-than-5-minutes-have-them-run-in-parallel"><span class="nav-number">3.1.3.</span> <span class="nav-text">3. Run all the tests on all commits (if your tests run longer than 5 minutes have them run in parallel).</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Perform-code-reviews-before-merges-into-master-not-afterwards"><span class="nav-number">3.1.4.</span> <span class="nav-text">4. Perform code reviews before merges into master, not afterwards.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Deployments-are-automatic-based-on-branches-or-tags"><span class="nav-number">3.1.5.</span> <span class="nav-text">5. Deployments are automatic, based on branches or tags.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-Tags-are-set-by-the-user-not-by-CI"><span class="nav-number">3.1.6.</span> <span class="nav-text">6. Tags are set by the user, not by CI.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-Releases-are-based-on-tags"><span class="nav-number">3.1.7.</span> <span class="nav-text">7. Releases are based on tags.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-Pushed-commits-are-never-rebased"><span class="nav-number">3.1.8.</span> <span class="nav-text">8. Pushed commits are never rebased.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-Everyone-starts-from-master-and-targets-master"><span class="nav-number">3.1.9.</span> <span class="nav-text">9. Everyone starts from master, and targets master.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-Fix-bugs-in-master-first-and-release-branches-second"><span class="nav-number">3.1.10.</span> <span class="nav-text">10. Fix bugs in master first and release branches second.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-Commit-messages-reflect-intent"><span class="nav-number">3.1.11.</span> <span class="nav-text">11. Commit messages reflect intent.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自己結尾"><span class="nav-number">3.1.12.</span> <span class="nav-text">自己結尾</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git基本指令介紹"><span class="nav-number">4.</span> <span class="nav-text">Git基本指令介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#實際走一遍"><span class="nav-number">5.</span> <span class="nav-text">實際走一遍</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tp6g04jp6</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主題 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('複製').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function () {
+          $b.text('複製');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
+
+  
+
+</body>
+</html>
