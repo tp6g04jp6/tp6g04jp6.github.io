@@ -96,19 +96,25 @@
 
 
 
-  <meta name="description" content="前言這篇將介紹 GitLab flow, 主要翻譯兩篇文章以及 DEMO 流程怎麼走, 但對 CI/CD流程以及如何 code review 細節不會提到, 所以如果已經知道 gitlab flow 內容的請無視這幼幼班的murmur文   文章簡譯 “The 11 Rules of GitLab Flow”   介紹 “GitLab Flow” Git 基本指令介紹 ( branch, chec">
+  <meta name="description" content="前言這篇將介紹 GitLab flow, 主要翻譯兩篇文章以及 DEMO 流程怎麼走, 但對 CI/CD流程以及如何 code review 細節不會提到, 所以如果已經知道 gitlab flow 內容的請無視這幼幼班的murmur文   文章簡譯:The 11 Rules of GitLab Flow   介紹 GitLab Flow Git 基本指令介紹   實際走一遍 討論合不合適   介">
 <meta name="keywords" content="gitlab,gitlab flow,git flow,github flow">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GitLab Flow">
 <meta property="og:url" content="http://yoursite.com/2020/02/20/GitLab-Flow/index.html">
 <meta property="og:site_name" content="KenPlay">
-<meta property="og:description" content="前言這篇將介紹 GitLab flow, 主要翻譯兩篇文章以及 DEMO 流程怎麼走, 但對 CI/CD流程以及如何 code review 細節不會提到, 所以如果已經知道 gitlab flow 內容的請無視這幼幼班的murmur文   文章簡譯 “The 11 Rules of GitLab Flow”   介紹 “GitLab Flow” Git 基本指令介紹 ( branch, chec">
+<meta property="og:description" content="前言這篇將介紹 GitLab flow, 主要翻譯兩篇文章以及 DEMO 流程怎麼走, 但對 CI/CD流程以及如何 code review 細節不會提到, 所以如果已經知道 gitlab flow 內容的請無視這幼幼班的murmur文   文章簡譯:The 11 Rules of GitLab Flow   介紹 GitLab Flow Git 基本指令介紹   實際走一遍 討論合不合適   介">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="http://yoursite.com/2020/02/20/GitLab-Flow/git-flow.png">
-<meta property="og:updated_time" content="2020-02-20T14:22:39.361Z">
+<meta property="og:image" content="http://yoursite.com/2020/02/20/GitLab-Flow/github-flow-1.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/20/GitLab-Flow/github-flow-2.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/20/GitLab-Flow/github-flow-3.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/20/GitLab-Flow/github-flow-4.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/20/GitLab-Flow/github-flow-5.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/20/GitLab-Flow/github-flow-6.png">
+<meta property="og:updated_time" content="2020-02-20T14:59:48.837Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitLab Flow">
-<meta name="twitter:description" content="前言這篇將介紹 GitLab flow, 主要翻譯兩篇文章以及 DEMO 流程怎麼走, 但對 CI/CD流程以及如何 code review 細節不會提到, 所以如果已經知道 gitlab flow 內容的請無視這幼幼班的murmur文   文章簡譯 “The 11 Rules of GitLab Flow”   介紹 “GitLab Flow” Git 基本指令介紹 ( branch, chec">
+<meta name="twitter:description" content="前言這篇將介紹 GitLab flow, 主要翻譯兩篇文章以及 DEMO 流程怎麼走, 但對 CI/CD流程以及如何 code review 細節不會提到, 所以如果已經知道 gitlab flow 內容的請無視這幼幼班的murmur文   文章簡譯:The 11 Rules of GitLab Flow   介紹 GitLab Flow Git 基本指令介紹   實際走一遍 討論合不合適   介">
 <meta name="twitter:image" content="http://yoursite.com/2020/02/20/GitLab-Flow/git-flow.png">
 
 
@@ -385,7 +391,7 @@
                 
               
 
-              <time title="創建時間：2020-02-20 20:40:01 / 修改時間：22:22:39" itemprop="dateCreated datePublished" datetime="2020-02-20T20:40:01+08:00">2020-02-20</time>
+              <time title="創建時間：2020-02-20 20:40:01 / 修改時間：22:59:48" itemprop="dateCreated datePublished" datetime="2020-02-20T20:40:01+08:00">2020-02-20</time>
             
 
             
@@ -443,19 +449,31 @@
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>這篇將介紹 <strong>GitLab flow</strong>, 主要翻譯兩篇文章以及 DEMO 流程怎麼走, 但對 CI/CD流程以及如何 code review 細節不會提到, 所以如果已經知道 gitlab flow 內容的請無視這幼幼班的murmur文 </p>
 <ol>
-<li><a href="#文章簡譯">文章簡譯 “The 11 Rules of GitLab Flow”</a>  </li>
-<li><a href="#介紹-GitLab-Flow">介紹 “GitLab Flow”</a></li>
-<li><a href="#Git基本指令介紹">Git 基本指令介紹 ( branch, checkout, merge, rebase, cherry-pick… )</a>  </li>
+<li><a href="#文章簡譯">文章簡譯:The 11 Rules of GitLab Flow</a>  </li>
+<li><a href="#介紹-GitLab-Flow">介紹 GitLab Flow</a></li>
+<li><a href="#Git基本指令介紹">Git 基本指令介紹</a>  </li>
 <li><a href="#實際走一遍">實際走一遍</a></li>
-<li><a href="#討論合不合適">討論合不合適</a></li>
+<li><a href="#討論合不合適">討論合不合適</a> </li>
 </ol>
-<p>文章為 : </p>
-<ol>
-<li><a href="https://about.gitlab.com/blog/2016/07/27/the-11-rules-of-gitlab-flow/" target="_blank" rel="noopener">The 11 Rules of GitLab Flow</a>  </li>
-<li><a href="https://about.gitlab.com/blog/2014/09/29/gitlab-flow/" target="_blank" rel="noopener">GitLab Flow</a>  </li>
+<h1 id="介紹-GitLab-Flow"><a href="#介紹-GitLab-Flow" class="headerlink" title="介紹 GitLab Flow"></a>介紹 GitLab Flow</h1><h2 id="連結"><a href="#連結" class="headerlink" title="連結"></a>連結</h2><blockquote>
+<p><a href="https://about.gitlab.com/blog/2014/09/29/gitlab-flow/" target="_blank" rel="noopener">https://about.gitlab.com/blog/2014/09/29/gitlab-flow/</a></p>
+</blockquote>
+<h2 id="Git-Flow"><a href="#Git-Flow" class="headerlink" title="Git Flow"></a>Git Flow</h2><p>一張圖講解完 Git Flow </p>
+<div style="width:65%;margin:auto"><img src="/2020/02/20/GitLab-Flow/git-flow.png" title="Git-Flow"></div>
+
+<h2 id="Github-Flow"><a href="#Github-Flow" class="headerlink" title="Github Flow"></a>Github Flow</h2><blockquote>
+<p>參考: <a href="https://ithelp.ithome.com.tw/articles/10228090" target="_blank" rel="noopener">https://ithelp.ithome.com.tw/articles/10228090</a><br>參考: <a href="https://blog.wu-boy.com/2017/12/github-flow-vs-git-flow/" target="_blank" rel="noopener">https://blog.wu-boy.com/2017/12/github-flow-vs-git-flow/</a></p>
+<ol start="0">
+<li>總覽</li>
 </ol>
-<h1 id="介紹-GitLab-Flow"><a href="#介紹-GitLab-Flow" class="headerlink" title="介紹 GitLab Flow"></a>介紹 GitLab Flow</h1><h2 id="Git-Flow"><a href="#Git-Flow" class="headerlink" title="Git Flow"></a>Git Flow</h2><p>一張圖講解完 Git Flow<br><img src="git-flow.png" alt="Git-Flow"></p>
-<h1 id="文章簡譯"><a href="#文章簡譯" class="headerlink" title="文章簡譯"></a>文章簡譯</h1><h2 id="The-11-Rules-of-GitLab-Flow"><a href="#The-11-Rules-of-GitLab-Flow" class="headerlink" title="The 11 Rules of GitLab Flow"></a>The 11 Rules of GitLab Flow</h2><blockquote>
+</blockquote>
+<div style="width:65%;margin:auto"></div><br>1. Create A Branch<br><div style="width:65%;margin:auto"><img src="/2020/02/20/GitLab-Flow/github-flow-1.png"></div><br>2. Add Commits<br><div style="width:65%;margin:auto"><img src="/2020/02/20/GitLab-Flow/github-flow-2.png"></div><br>3. Open a Pull Request (開一個推送請求PR)<br><div style="width:65%;margin:auto"><img src="/2020/02/20/GitLab-Flow/github-flow-3.png"></div><br>4. Discuss And Review (討論及審查)<br><div style="width:65%;margin:auto"><img src="/2020/02/20/GitLab-Flow/github-flow-4.png"></div><br>5. Deploy (部署)<br><div style="width:65%;margin:auto"><img src="/2020/02/20/GitLab-Flow/github-flow-5.png"></div><br>6. Merge (合併)<br><div style="width:65%;margin:auto"><img src="/2020/02/20/GitLab-Flow/github-flow-6.png"></div>
+
+<h2 id="GitLab-Flow"><a href="#GitLab-Flow" class="headerlink" title="GitLab Flow"></a>GitLab Flow</h2><p>GitLab Flow 與 Github 相同, 所有的 branch 都由 master branch 出來的, 生產環境(Production) 或 版本(release) branch 也是由 master branch 出來的, master 是所有分支的上游, 再加上游優先的規則, 基本上 GitLab FLow 的概念就已經達到了</p>
+<h1 id="文章簡譯"><a href="#文章簡譯" class="headerlink" title="文章簡譯"></a>文章簡譯</h1><h2 id="連結-1"><a href="#連結-1" class="headerlink" title="連結"></a>連結</h2><blockquote>
+<p><a href="https://about.gitlab.com/blog/2016/07/27/the-11-rules-of-gitlab-flow/" target="_blank" rel="noopener">The 11 Rules of GitLab Flow</a></p>
+</blockquote>
+<h2 id="The-11-Rules-of-GitLab-Flow"><a href="#The-11-Rules-of-GitLab-Flow" class="headerlink" title="The 11 Rules of GitLab Flow"></a>The 11 Rules of GitLab Flow</h2><blockquote>
 <ol>
 <li>Use feature branches, no direct commits on master.</li>
 <li>Test all commits, not only ones on master.</li>
@@ -813,7 +831,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#介紹-GitLab-Flow"><span class="nav-number">2.</span> <span class="nav-text">介紹 GitLab Flow</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-Flow"><span class="nav-number">2.1.</span> <span class="nav-text">Git Flow</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文章簡譯"><span class="nav-number">3.</span> <span class="nav-text">文章簡譯</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#The-11-Rules-of-GitLab-Flow"><span class="nav-number">3.1.</span> <span class="nav-text">The 11 Rules of GitLab Flow</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Use-feature-branches-no-direct-commits-on-master"><span class="nav-number">3.1.1.</span> <span class="nav-text">1. Use feature branches, no direct commits on master.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Test-all-commits-not-only-ones-on-master"><span class="nav-number">3.1.2.</span> <span class="nav-text">2. Test all commits, not only ones on master.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Run-all-the-tests-on-all-commits-if-your-tests-run-longer-than-5-minutes-have-them-run-in-parallel"><span class="nav-number">3.1.3.</span> <span class="nav-text">3. Run all the tests on all commits (if your tests run longer than 5 minutes have them run in parallel).</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Perform-code-reviews-before-merges-into-master-not-afterwards"><span class="nav-number">3.1.4.</span> <span class="nav-text">4. Perform code reviews before merges into master, not afterwards.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Deployments-are-automatic-based-on-branches-or-tags"><span class="nav-number">3.1.5.</span> <span class="nav-text">5. Deployments are automatic, based on branches or tags.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-Tags-are-set-by-the-user-not-by-CI"><span class="nav-number">3.1.6.</span> <span class="nav-text">6. Tags are set by the user, not by CI.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-Releases-are-based-on-tags"><span class="nav-number">3.1.7.</span> <span class="nav-text">7. Releases are based on tags.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-Pushed-commits-are-never-rebased"><span class="nav-number">3.1.8.</span> <span class="nav-text">8. Pushed commits are never rebased.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-Everyone-starts-from-master-and-targets-master"><span class="nav-number">3.1.9.</span> <span class="nav-text">9. Everyone starts from master, and targets master.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-Fix-bugs-in-master-first-and-release-branches-second"><span class="nav-number">3.1.10.</span> <span class="nav-text">10. Fix bugs in master first and release branches second.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-Commit-messages-reflect-intent"><span class="nav-number">3.1.11.</span> <span class="nav-text">11. Commit messages reflect intent.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自己結尾"><span class="nav-number">3.1.12.</span> <span class="nav-text">自己結尾</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git基本指令介紹"><span class="nav-number">4.</span> <span class="nav-text">Git基本指令介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#實際走一遍"><span class="nav-number">5.</span> <span class="nav-text">實際走一遍</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#介紹-GitLab-Flow"><span class="nav-number">2.</span> <span class="nav-text">介紹 GitLab Flow</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#連結"><span class="nav-number">2.1.</span> <span class="nav-text">連結</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-Flow"><span class="nav-number">2.2.</span> <span class="nav-text">Git Flow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Github-Flow"><span class="nav-number">2.3.</span> <span class="nav-text">Github Flow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitLab-Flow"><span class="nav-number">2.4.</span> <span class="nav-text">GitLab Flow</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文章簡譯"><span class="nav-number">3.</span> <span class="nav-text">文章簡譯</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#連結-1"><span class="nav-number">3.1.</span> <span class="nav-text">連結</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-11-Rules-of-GitLab-Flow"><span class="nav-number">3.2.</span> <span class="nav-text">The 11 Rules of GitLab Flow</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Use-feature-branches-no-direct-commits-on-master"><span class="nav-number">3.2.1.</span> <span class="nav-text">1. Use feature branches, no direct commits on master.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Test-all-commits-not-only-ones-on-master"><span class="nav-number">3.2.2.</span> <span class="nav-text">2. Test all commits, not only ones on master.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Run-all-the-tests-on-all-commits-if-your-tests-run-longer-than-5-minutes-have-them-run-in-parallel"><span class="nav-number">3.2.3.</span> <span class="nav-text">3. Run all the tests on all commits (if your tests run longer than 5 minutes have them run in parallel).</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Perform-code-reviews-before-merges-into-master-not-afterwards"><span class="nav-number">3.2.4.</span> <span class="nav-text">4. Perform code reviews before merges into master, not afterwards.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Deployments-are-automatic-based-on-branches-or-tags"><span class="nav-number">3.2.5.</span> <span class="nav-text">5. Deployments are automatic, based on branches or tags.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-Tags-are-set-by-the-user-not-by-CI"><span class="nav-number">3.2.6.</span> <span class="nav-text">6. Tags are set by the user, not by CI.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-Releases-are-based-on-tags"><span class="nav-number">3.2.7.</span> <span class="nav-text">7. Releases are based on tags.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-Pushed-commits-are-never-rebased"><span class="nav-number">3.2.8.</span> <span class="nav-text">8. Pushed commits are never rebased.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-Everyone-starts-from-master-and-targets-master"><span class="nav-number">3.2.9.</span> <span class="nav-text">9. Everyone starts from master, and targets master.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-Fix-bugs-in-master-first-and-release-branches-second"><span class="nav-number">3.2.10.</span> <span class="nav-text">10. Fix bugs in master first and release branches second.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-Commit-messages-reflect-intent"><span class="nav-number">3.2.11.</span> <span class="nav-text">11. Commit messages reflect intent.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自己結尾"><span class="nav-number">3.2.12.</span> <span class="nav-text">自己結尾</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git基本指令介紹"><span class="nav-number">4.</span> <span class="nav-text">Git基本指令介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#實際走一遍"><span class="nav-number">5.</span> <span class="nav-text">實際走一遍</span></a></li></ol></div>
             
 
           </div>
