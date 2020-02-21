@@ -384,12 +384,24 @@
                 
               
 
-              <time title="創建時間：2020-02-20 20:40:01 / 修改時間：22:59:48" itemprop="dateCreated datePublished" datetime="2020-02-20T20:40:01+08:00">2020-02-20</time>
+              <time title="創建時間：2020-02-20 20:40:01" itemprop="dateCreated datePublished" datetime="2020-02-20T20:40:01+08:00">2020-02-20</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2020-02-21 11:27:29" itemprop="dateModified" datetime="2020-02-21T11:27:29+08:00">2020-02-21</time>
               
             
           </span>
@@ -462,9 +474,16 @@
 <li>總覽</li>
 </ol>
 </blockquote>
-<div style="width:65%;margin:auto"></div><br>1. Create A Branch<br><div style="width:65%;margin:auto"><img src="/2020/02/20/GitLab-Flow/github-flow-1.png"></div><br>2. Add Commits<br><div style="width:65%;margin:auto"><img src="/2020/02/20/GitLab-Flow/github-flow-2.png"></div><br>3. Open a Pull Request (開一個推送請求PR)<br><div style="width:65%;margin:auto"><img src="/2020/02/20/GitLab-Flow/github-flow-3.png"></div><br>4. Discuss And Review (討論及審查)<br><div style="width:65%;margin:auto"><img src="/2020/02/20/GitLab-Flow/github-flow-4.png"></div><br>5. Deploy (部署)<br><div style="width:65%;margin:auto"><img src="/2020/02/20/GitLab-Flow/github-flow-5.png"></div><br>6. Merge (合併)<br><div style="width:65%;margin:auto"><img src="/2020/02/20/GitLab-Flow/github-flow-6.png"></div>
+<div style="width:65%;margin:auto"></div><br>1. Create A Branch<br><div style="width:65%;margin:auto"><img src="/2020/02/20/GitLab-Flow/github-flow-1.png"></div><br>使用 fork 的方式從別人的遠端倉庫 copy 一分到自己的倉庫, 想要怎麼改都可以<br><div style="width:65%;margin:auto"><img src="/2020/02/20/GitLab-Flow/github-flow-7.png"></div><br>2. Add Commits<br><div style="width:65%;margin:auto"><img src="/2020/02/20/GitLab-Flow/github-flow-2.png"></div><br>3. Open a Pull Request (開一個推送請求PR)<br><div style="width:65%;margin:auto"><img src="/2020/02/20/GitLab-Flow/github-flow-3.png"></div><br>4. Discuss And Review (討論及審查)<br><div style="width:65%;margin:auto"><img src="/2020/02/20/GitLab-Flow/github-flow-4.png"></div><br>5. Deploy (部署)<br><div style="width:65%;margin:auto"><img src="/2020/02/20/GitLab-Flow/github-flow-5.png"></div><br>6. Merge (合併)<br><div style="width:65%;margin:auto"><img src="/2020/02/20/GitLab-Flow/github-flow-6.png"></div>
 
-<h2 id="GitLab-Flow"><a href="#GitLab-Flow" class="headerlink" title="GitLab Flow"></a>GitLab Flow</h2><p>GitLab Flow 與 Github 相同, 所有的 branch 都由 master branch 出來的, 生產環境(Production) 或 版本(release) branch 也是由 master branch 出來的, master 是所有分支的上游, 再加上游優先的規則, 基本上 GitLab FLow 的概念就已經達到了</p>
+<h2 id="GitLab-Flow"><a href="#GitLab-Flow" class="headerlink" title="GitLab Flow"></a>GitLab Flow</h2><ol>
+<li>GitLab Flow 與 Github 相同, 只有一個主要分支 master</li>
+<li><strong>上游優先 (Upstream first)</strong> : 所有的 branch 都由 master branch 出來的, 生產環境(Production) 或 版本(release) branch 也是由 master branch 出來的, master 是所有分支的上游</li>
+<li><strong>功能驅動式開發 Feature-driven development</strong> : 當有需求時會從 master 分支為起點產生功能分支 (feature branch), 該功能開發完後功能分支會經過 <em>測試</em>, <em>merge request</em>, <em>code review</em>, <em>合併回master</em>, <em>刪除</em></li>
+</ol>
+<h3 id="Environment-branches-with-GitLab-flow"><a href="#Environment-branches-with-GitLab-flow" class="headerlink" title="Environment branches with GitLab flow"></a>Environment branches with GitLab flow</h3><blockquote>
+<p>環境分支與 GitLab flow</p>
+</blockquote>
 <h1 id="文章簡譯"><a href="#文章簡譯" class="headerlink" title="文章簡譯"></a>文章簡譯</h1><h2 id="連結-1"><a href="#連結-1" class="headerlink" title="連結"></a>連結</h2><blockquote>
 <p><a href="https://about.gitlab.com/blog/2016/07/27/the-11-rules-of-gitlab-flow/" target="_blank" rel="noopener">The 11 Rules of GitLab Flow</a></p>
 </blockquote>
@@ -530,7 +549,9 @@
 <p>在 Commit message 中充分的表達修改的目的及意圖 </p>
 </blockquote>
 <p>gitlab 官方推薦規範 : <a href="https://docs.gitlab.com/ee/topics/gitlab_flow.html#how-to-write-a-good-commit-message" target="_blank" rel="noopener">https://docs.gitlab.com/ee/topics/gitlab_flow.html#how-to-write-a-good-commit-message</a></p>
-<p><em>自己murmur: 總而言之就是寫得越清楚越好</em></p>
+<p><em>自己murmur: 總而言之就是寫得越清楚越好, 如果寫得不清楚就根本不知道這些 commit 在幹嘛, 如下圖</em>  </p>
+<div style="width:65%;margin:auto"><img src="/2020/02/20/GitLab-Flow/gitlab-flow-1.png"></div>
+
 <h3 id="自己結尾"><a href="#自己結尾" class="headerlink" title="自己結尾"></a>自己結尾</h3><p>其實這11條就只是規則, 規範, 沒有遵守也不會怎樣, 但有共通流程, 可以配合測試(test)和自動化整合部屬(CI/CD), 這樣打開 git 專案翻開 code 看到 git graph 時才不會一頭霧水</p>
 <h1 id="Git基本指令介紹"><a href="#Git基本指令介紹" class="headerlink" title="Git基本指令介紹"></a>Git基本指令介紹</h1><h1 id="實際走一遍"><a href="#實際走一遍" class="headerlink" title="實際走一遍"></a>實際走一遍</h1>
           
@@ -933,7 +954,7 @@
 </ol>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">dd if=/dev/sda of=/dev/zero</span><br></pre></td></tr></table></figure>
 <ol start="8">
-<li>當出現以下訊息代表已經成功產生密要對, 其中<strong>KenPlay (TEST) <a href="mailto:&#107;&#x65;&#x6e;&#64;&#120;&#120;&#120;&#120;&#x78;&#x78;&#x2e;&#x78;&#120;&#x78;&#x2e;&#x78;&#x78;" target="_blank" rel="noopener">&#107;&#x65;&#x6e;&#64;&#120;&#120;&#120;&#120;&#x78;&#x78;&#x2e;&#x78;&#120;&#x78;&#x2e;&#x78;&#x78;</a></strong>就是這對密鑰的ID  </li>
+<li>當出現以下訊息代表已經成功產生密要對, 其中<strong>KenPlay (TEST) <a href="mailto:&#107;&#x65;&#110;&#x40;&#x78;&#x78;&#x78;&#120;&#120;&#120;&#x2e;&#120;&#x78;&#x78;&#46;&#120;&#x78;" target="_blank" rel="noopener">&#107;&#x65;&#110;&#x40;&#x78;&#x78;&#x78;&#120;&#120;&#120;&#x2e;&#120;&#x78;&#x78;&#46;&#120;&#x78;</a></strong>就是這對密鑰的ID  </li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gpg: ~/.gnupg/trustdb.gpg: trustdb created</span><br><span class="line">gpg: key &lt;ID&gt; marked as ultimately trusted</span><br><span class="line">gpg: directory '~/.gnupg/openpgp-revocs.d' created</span><br><span class="line">gpg: revocation certificate stored as '~/.gnupg/openpgp-revocs.d/&lt;....&gt;.rev'</span><br><span class="line">public and secret key created and signed.</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gpg: checking the trustdb</span><br><span class="line">gpg: marginals needed: 3  completes needed: 1  trust model: PGP</span><br><span class="line">gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u</span><br><span class="line">pub   rsa2048/&lt;ID&gt; 2019-12-27 [S]</span><br><span class="line">      Key fingerprint = &lt;......&gt;</span><br><span class="line">uid         [ultimate] KenPlay (TEST) &lt;ken@xxxxxx.xxx.xx&gt;</span><br><span class="line">sub   rsa2048/&lt;ID&gt; 2019-12-27 []</span><br></pre></td></tr></table></figure>
